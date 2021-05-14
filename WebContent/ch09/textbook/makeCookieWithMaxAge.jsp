@@ -2,7 +2,11 @@
 <%@ page import="java.util.*" %>
 
 <% request.setCharacterEncoding("utf-8"); %>
-
+<%
+Cookie cookie = new Cookie("oneh", "1time");
+cookie.setMaxAge(60*60);//60분
+response.addCookie(cookie);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,15 +16,7 @@
 <body>
 
 <div class="container">
-<form>
-
-<input class="btn btn-outline-primary" type="text" name="book"><br>
-<input class="btn btn-outline-primary" type="text" name="price"><br>
-<input type="submit" class="btn btn-primary" value="전송">
-</form>
-
-
-<jsp:include page="bookExample-sub.jsp"></jsp:include>
+	유효시간이 1시간인 oneh 쿠키 생성.
 </div>
 </body>
 </html>

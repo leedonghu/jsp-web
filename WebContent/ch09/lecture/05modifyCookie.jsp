@@ -2,7 +2,17 @@
 <%@ page import="java.util.*" %>
 
 <% request.setCharacterEncoding("utf-8"); %>
+<%
+Cookie[] cookies = request.getCookies();
+for(Cookie c : cookies){
+	if(c.getName().equals("my-cookie")){
+		
+Cookie cookie = new Cookie("my-cookie", "new-value");
+response.addCookie(cookie);
+	}
+}
 
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,15 +22,7 @@
 <body>
 
 <div class="container">
-<form>
-
-<input class="btn btn-outline-primary" type="text" name="book"><br>
-<input class="btn btn-outline-primary" type="text" name="price"><br>
-<input type="submit" class="btn btn-primary" value="전송">
-</form>
-
-
-<jsp:include page="bookExample-sub.jsp"></jsp:include>
+	<h1>쿠키 변경</h1>
 </div>
 </body>
 </html>

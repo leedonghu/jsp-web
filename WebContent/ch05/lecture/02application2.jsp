@@ -2,7 +2,6 @@
 <%@ page import="java.util.*" %>
 
 <% request.setCharacterEncoding("utf-8"); %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,15 +11,10 @@
 <body>
 
 <div class="container">
-<form>
-
-<input class="btn btn-outline-primary" type="text" name="book"><br>
-<input class="btn btn-outline-primary" type="text" name="price"><br>
-<input type="submit" class="btn btn-primary" value="전송">
-</form>
-
-
-<jsp:include page="bookExample-sub.jsp"></jsp:include>
+	<h1>attribute 꺼내보기</h1>
+	<h3><%=request.getAttribute("req-attr1") %></h3>
+	<h3><%=session.getAttribute("se-attr1") %></h3>
+	<h3><%=application.getAttribute("app-attr1") %></h3>
 </div>
 </body>
 </html>

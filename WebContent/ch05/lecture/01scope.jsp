@@ -2,7 +2,6 @@
 <%@ page import="java.util.*" %>
 
 <% request.setCharacterEncoding("utf-8"); %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,15 +11,13 @@
 <body>
 
 <div class="container">
-<form>
-
-<input class="btn btn-outline-primary" type="text" name="book"><br>
-<input class="btn btn-outline-primary" type="text" name="price"><br>
-<input type="submit" class="btn btn-primary" value="전송">
-</form>
-
-
-<jsp:include page="bookExample-sub.jsp"></jsp:include>
+	<h1>jsp(servlet) 영역</h1>
+	<p>
+	page : 하나의 jsp(pageContext-PageContext)<br>
+	request : 하나의 요청(request-HttpServletRquest)<br>
+	session : 하나의 웹브라우저(session-HttpSession)<br>
+	application : 하나의 웹 어플리케이션(application-ServletContext)<br>
+	</p>
 </div>
 </body>
 </html>

@@ -1,8 +1,10 @@
 <%@ page  contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.*" %>
-
+<%@ page session="false" %>
 <% request.setCharacterEncoding("utf-8"); %>
-
+<% HttpSession session = request.getSession();
+session.setAttribute("a", "b");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,15 +14,7 @@
 <body>
 
 <div class="container">
-<form>
-
-<input class="btn btn-outline-primary" type="text" name="book"><br>
-<input class="btn btn-outline-primary" type="text" name="price"><br>
-<input type="submit" class="btn btn-primary" value="전송">
-</form>
-
-
-<jsp:include page="bookExample-sub.jsp"></jsp:include>
+	
 </div>
 </body>
 </html>

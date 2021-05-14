@@ -1,8 +1,12 @@
 <%@ page  contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.*" %>
+<%@ page import="java.net.URLEncoder" %>
 
 <% request.setCharacterEncoding("utf-8"); %>
-
+<%
+Cookie cookie = new Cookie("name", URLEncoder.encode("최범균", "utf-8"));
+response.addCookie(cookie);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,15 +16,7 @@
 <body>
 
 <div class="container">
-<form>
-
-<input class="btn btn-outline-primary" type="text" name="book"><br>
-<input class="btn btn-outline-primary" type="text" name="price"><br>
-<input type="submit" class="btn btn-primary" value="전송">
-</form>
-
-
-<jsp:include page="bookExample-sub.jsp"></jsp:include>
+	<%=cookie.getName() %>쿠키의 값 = "<%=cookie.getValue() %>"
 </div>
 </body>
 </html>

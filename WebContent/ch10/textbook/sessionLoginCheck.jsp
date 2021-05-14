@@ -2,7 +2,10 @@
 <%@ page import="java.util.*" %>
 
 <% request.setCharacterEncoding("utf-8"); %>
-
+<%
+String memberId = (String) session.getAttribute("MEMBERID");
+boolean login = memberId == null? false: true;
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,15 +15,17 @@
 <body>
 
 <div class="container">
-<form>
-
-<input class="btn btn-outline-primary" type="text" name="book"><br>
-<input class="btn btn-outline-primary" type="text" name="price"><br>
-<input type="submit" class="btn btn-primary" value="전송">
-</form>
-
-
-<jsp:include page="bookExample-sub.jsp"></jsp:include>
+	<%
+	if(login){
+	%>
+	아이디"<%=memberId %>"로 로그인 한 상태
+	<%
+	} else {
+	%>
+	로그인하지 않은 상태
+	<%
+	}
+	%>
 </div>
 </body>
 </html>

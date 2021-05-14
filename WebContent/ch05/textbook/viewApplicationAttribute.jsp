@@ -2,7 +2,6 @@
 <%@ page import="java.util.*" %>
 
 <% request.setCharacterEncoding("utf-8"); %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,15 +11,16 @@
 <body>
 
 <div class="container">
-<form>
-
-<input class="btn btn-outline-primary" type="text" name="book"><br>
-<input class="btn btn-outline-primary" type="text" name="price"><br>
-<input type="submit" class="btn btn-primary" value="전송">
-</form>
-
-
-<jsp:include page="bookExample-sub.jsp"></jsp:include>
+	<%
+	Enumeration<String> attrEnum = application.getAttributeNames();
+	while(attrEnum.hasMoreElements()){
+		String name = attrEnum.nextElement();
+		Object value = application.getAttribute(name);
+	%>
+	application 속성:<b><%=name %></b> = <%=value %><br>
+	<%
+	}
+	%>
 </div>
 </body>
 </html>

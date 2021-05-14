@@ -2,7 +2,6 @@
 <%@ page import="java.util.*" %>
 
 <% request.setCharacterEncoding("utf-8"); %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,15 +11,12 @@
 <body>
 
 <div class="container">
-<form>
-
-<input class="btn btn-outline-primary" type="text" name="book"><br>
-<input class="btn btn-outline-primary" type="text" name="price"><br>
-<input type="submit" class="btn btn-primary" value="전송">
-</form>
-
-
-<jsp:include page="bookExample-sub.jsp"></jsp:include>
+	<form action="<%=request.getContextPath() %>/ch10/textbook/sessionLogin.jsp" method="post">
+	아이디<input type="text" name="id" size="10">
+	암호 <input type="password" name="password" size="10">
+	<input type="submit" value="로그인">
+	
+	</form>
 </div>
 </body>
 </html>
