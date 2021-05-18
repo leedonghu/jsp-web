@@ -10,17 +10,17 @@
 </head>
 <body>
 
-<div class="container" style="border: 2px solid black">
+<div class="container">
+<%
+String[] fruits = request.getParameterValues("fruit");
+for(int i=0; i<fruits.length; i++){
+	pageContext.setAttribute("i", i);
+%>
+	${paramValues.fruit[i] }<br>
 	
-	<form action="loginForm.jsp">
-  
-  <button type="submit" class="btn btn-primary btn-lg">로그인</button>
-</form>
-
-	
+	<%
+}
+	%>
 </div>
-
-
-
 </body>
 </html>

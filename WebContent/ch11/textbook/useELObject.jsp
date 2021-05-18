@@ -2,6 +2,9 @@
 <%@ page import="java.util.*" %>
 
 <% request.setCharacterEncoding("utf-8"); %>
+<%
+request.setAttribute("name", "최범균");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,17 +13,10 @@
 </head>
 <body>
 
-<div class="container" style="border: 2px solid black">
-	
-	<form action="loginForm.jsp">
-  
-  <button type="submit" class="btn btn-primary btn-lg">로그인</button>
-</form>
-
-	
+<div class="container">
+	요청 url : ${pageContext.request.requestURL }<br>
+	request의  name 속성: ${requestScope.name }<br>
+	code 파라미터 : ${param.code }
 </div>
-
-
-
 </body>
 </html>

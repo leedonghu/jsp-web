@@ -10,17 +10,11 @@
 </head>
 <body>
 
-<div class="container" style="border: 2px solid black">
+<div class="container">
+	<form action="login.jsp">
+	<button>로그아웃</button>
 	
-	<form action="loginForm.jsp">
-  
-  <button type="submit" class="btn btn-primary btn-lg">로그인</button>
-</form>
-
-	
+	</form>
 </div>
-
-
-
 </body>
 </html>

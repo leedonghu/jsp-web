@@ -17,7 +17,7 @@ session.setAttribute("password", password);
 <body>
 
 <div class="container">
-	<form action="login.jsp">
+	<form action="logout.jsp">
   <div class="form-group">
     <label for="exampleInputEmail1">아이디</label>
     <input type="text" class="form-control" id="exampleInputEmail1" name="id">
@@ -29,6 +29,9 @@ session.setAttribute("password", password);
   </div>
   
   <button type="submit" class="btn btn-primary">로그인</button>
+</form>
+<form action="new-account.jsp">
+  <button type="submit" class="btn btn-primary">회원가입</button>
 </form>
 
 </div>

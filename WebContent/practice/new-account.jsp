@@ -10,17 +10,8 @@
 </head>
 <body>
 
-<div class="container" style="border: 2px solid black">
-	
-	<form action="loginForm.jsp">
-  
-  <button type="submit" class="btn btn-primary btn-lg">로그인</button>
-</form>
-
+<div class="container">
 	
 </div>
-
-
-
 </body>
 </html>

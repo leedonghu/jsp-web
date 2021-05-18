@@ -2,6 +2,9 @@
 <%@ page import="java.util.*" %>
 
 <% request.setCharacterEncoding("utf-8"); %>
+<%
+response.addCookie(new Cookie("my-cookie", "my-value"));
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,17 +13,11 @@
 </head>
 <body>
 
-<div class="container" style="border: 2px solid black">
+<div class="container">
+	connection : ${header.connection }<br>
 	
-	<form action="loginForm.jsp">
-  
-  <button type="submit" class="btn btn-primary btn-lg">로그인</button>
-</form>
-
-	
+	cache-control : ${header["cache-control"] }<br>
+	cookie : ${header.cookie }
 </div>
-
-
-
 </body>
 </html>

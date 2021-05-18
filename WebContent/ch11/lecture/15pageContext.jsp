@@ -10,17 +10,16 @@
 </head>
 <body>
 
-<div class="container" style="border: 2px solid black">
-	
-	<form action="loginForm.jsp">
-  
-  <button type="submit" class="btn btn-primary btn-lg">로그인</button>
-</form>
-
-	
+<div class="container">
+	pageContext : ${pageContext }
+	<br>
+	request : ${pageContext.request }
+	<br>
+	session : ${pageContext.session }
+	<br>
+	request.getContextPath() : ${pageContext.request.contextPath }
+	<br>
+	application : ${pageContext.servletContext }
 </div>
-
-
-
 </body>
 </html>

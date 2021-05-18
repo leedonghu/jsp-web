@@ -10,17 +10,10 @@
 </head>
 <body>
 
-<div class="container" style="border: 2px solid black">
-	
-	<form action="loginForm.jsp">
-  
-  <button type="submit" class="btn btn-primary btn-lg">로그인</button>
-</form>
-
-	
+<div class="container">
+	이름 : ${param.name }<br>
+	나이 : ${param.age }<br>
+	이메일 : ${param.email }<br>
 </div>
-
-
-
 </body>
 </html>

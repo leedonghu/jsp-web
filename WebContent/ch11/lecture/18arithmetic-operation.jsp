@@ -10,17 +10,15 @@
 </head>
 <body>
 
-<div class="container" style="border: 2px solid black">
-	
-	<form action="loginForm.jsp">
-  
-  <button type="submit" class="btn btn-primary btn-lg">로그인</button>
-</form>
-
+<div class="container">
+	<h1>산술 연산</h1>
+	\${3 + 5 } = ${3 + 5 }<br>
+	\${3 - 5 } = ${3 - 5 }<br>
+	\${3 * 5 } = ${3 * 5 }<br>
+	\${3 / 5 } = ${3 / 5 }<br>
+	\${3 % 5 } = ${3 % 5 }<br>
+	\${3 mod 5 } = ${3 mod 5 }
 	
 </div>
-
-
-
 </body>
 </html>

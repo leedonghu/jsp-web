@@ -2,6 +2,9 @@
 <%@ page import="java.util.*" %>
 
 <% request.setCharacterEncoding("utf-8"); %>
+<%
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,17 +13,15 @@
 </head>
 <body>
 
-<div class="container" style="border: 2px solid black">
+<div class="container">
+	<form action="12el-sample2.jsp" method="post">
+	이름: <input type="text" name="name"/><br>
+	나이: <input type="number" name="age"/><br>
+	이메일: <input type="email" name="email"/><br>
+	<input type="submit" value="전송"/><br>
 	
-	<form action="loginForm.jsp">
-  
-  <button type="submit" class="btn btn-primary btn-lg">로그인</button>
-</form>
-
+	</form>
 	
 </div>
-
-
-
 </body>
 </html>
