@@ -29,10 +29,10 @@ session.setAttribute("password", password);
   </div>
   
   <button type="submit" class="btn btn-primary">로그인</button>
+  <button type="button" onclick="location.href='new-account.jsp'" class="btn btn-primary">회원가입</button>
 </form>
-<form action="new-account.jsp">
-  <button type="submit" class="btn btn-primary">회원가입</button>
-</form>
+
+
 
 </div>
 </body>

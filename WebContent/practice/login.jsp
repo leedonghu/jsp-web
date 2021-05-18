@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<div class="container" style="border: 2px solid black">
+<div class="container">
 	
 	<form action="loginForm.jsp">
   
