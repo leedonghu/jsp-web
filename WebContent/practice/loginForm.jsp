@@ -28,7 +28,7 @@ session.setAttribute("password", password);
     <input type="password" class="form-control" id="exampleInputPassword1" name="password">
   </div>
   
-  <button type="submit" class="btn btn-primary">로그인</button>
+  <button type="submit" class="btn btn-primary" onclick="location.href='logout.jsp'">로그인</button>
   <button type="button" onclick="location.href='new-account.jsp'" class="btn btn-primary">회원가입</button>
 </form>
 
