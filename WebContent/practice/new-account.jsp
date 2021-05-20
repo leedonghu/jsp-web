@@ -10,6 +10,7 @@
 </head>
 
 <body>
+<form action="loginForm.jsp">
 <div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1">@</span>
   <input type="text" class="form-control" placeholder="이름" aria-label="Username" aria-describedby="basic-addon1" name="name">
@@ -24,6 +25,7 @@
   <input type="password" class="form-control" name="password" placeholder="비밀번호" aria-label="Recipient's username" aria-describedby="basic-addon2">
   <input type="submit"  class="input-group-text" id="basic-addon2" value="확인">
 </div>
+
 <%
 String id = request.getParameter("id");
 String password = request.getParameter("password");
@@ -59,8 +61,8 @@ if(id != null){
 </div>
 
 
-<button type="submit" class="btn btn-primary btn-lg" onclick="location.href='loginForm.jsp'">확인</button>
-
+<button type="button" class="btn btn-primary btn-lg" onclick="location.href='loginForm.jsp'">확인</button>
+</form>
 
 
 
