@@ -4,6 +4,15 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <% request.setCharacterEncoding("utf-8"); %>
+<%
+List<String> list = new ArrayList<>();
+list.add("java");
+list.add("css");
+list.add("jstl");
+
+pageContext.setAttribute("list", list);
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,11 +22,12 @@
 <body>
 
 <div class="container">
-	<form action="login.jsp">
-	<h1>${sessionScope.value }</h1>
-	<button>로그아웃</button>
-	
-	</form>
+	list 길이 : ${fn:length(list) }<br>
+	list 길이 : ${list.size() }<br>
+	list[0] 문자열 길이 : ${fn:length(list[0]) }<br>
+	list[1] 문자열 길이 : ${fn:length(list[1]) }<br>
+	list[2] 문자열 길이 : ${fn:length(list[2]) }<br>
+	list[2] 문자열 길이 : ${list[2].length() }<br>
 </div>
 </body>
 </html>

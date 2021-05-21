@@ -1,5 +1,7 @@
 <%@ page  contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
@@ -10,7 +12,7 @@
 </head>
 
 <body>
-<form action="loginForm.jsp">
+<form action="loginForm.jsp" method="post">
 <div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1">@</span>
   <input type="text" class="form-control" placeholder="이름" aria-label="Username" aria-describedby="basic-addon1" name="name">
@@ -18,12 +20,12 @@
 
 <div class="input-group mb-3">
   <input type="text" class="form-control" name="id" placeholder="아이디" aria-label="Recipient's username" aria-describedby="basic-addon2">
-  <input type="submit"  class="input-group-text" id="basic-addon2" value="확인">
+  <!-- <input type="submit"  class="input-group-text" id="basic-addon2" value="확인"> -->
 </div>
 
 <div class="input-group mb-3">
   <input type="password" class="form-control" name="password" placeholder="비밀번호" aria-label="Recipient's username" aria-describedby="basic-addon2">
-  <input type="submit"  class="input-group-text" id="basic-addon2" value="확인">
+ <!-- <input type="submit"  class="input-group-text" id="basic-addon2" value="확인"> --> 
 </div>
 
 <%
@@ -43,6 +45,8 @@ if(id != null){
 	map.put(id, password);
 }
 
+
+
 %>
 
 <label for="basic-url" class="form-label">주민번호</label>
@@ -61,7 +65,7 @@ if(id != null){
 </div>
 
 
-<button type="button" class="btn btn-primary btn-lg" onclick="location.href='loginForm.jsp'">확인</button>
+<button type="submit" class="btn btn-primary btn-lg" onclick="location.href='loginForm.jsp'">확인</button>
 </form>
 
 

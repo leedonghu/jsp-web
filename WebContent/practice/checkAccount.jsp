@@ -1,3 +1,4 @@
+
 <%@ page  contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -13,11 +14,32 @@
 <body>
 
 <div class="container">
-	<form action="login.jsp">
-	<h1>${sessionScope.value }</h1>
-	<button>로그아웃</button>
 	
-	</form>
+<%
+	String id = request.getParameter("id1");
+	String password = request.getParameter("password1");
+
+	Object o1 = application.getAttribute("acc");
+	HashMap<String, String> map1 = (HashMap<String, String>)o1; 
+
+
+if(map1 != null){
+	if (password.equals(map1.get(id))) {
+%>
+		<jsp:forward page="logout.jsp"></jsp:forward>
+		<%
+			} else {
+		%>
+		<jsp:forward page="loginForm.jsp"></jsp:forward>
+		<%
+			}
+		
+		}
+		%>
+	
 </div>
+
+
+
 </body>
 </html>

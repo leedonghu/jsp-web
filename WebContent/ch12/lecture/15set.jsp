@@ -4,6 +4,14 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <% request.setCharacterEncoding("utf-8"); %>
+<c:set var="attr1" value="value1"/>
+
+<c:set var="attr1" value="value2" scope="request"/>
+
+<%--
+pageContext.setAttribute("attr1", "value1");
+--%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,11 +21,9 @@
 <body>
 
 <div class="container">
-	<form action="login.jsp">
-	<h1>${sessionScope.value }</h1>
-	<button>로그아웃</button>
-	
-	</form>
+	${attr1 }<br>
+	${pageScope.attr1 }<br>
+	${requestScope.attr1 }<br>
 </div>
 </body>
 </html>

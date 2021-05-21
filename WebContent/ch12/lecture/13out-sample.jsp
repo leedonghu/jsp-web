@@ -13,11 +13,17 @@
 <body>
 
 <div class="container">
-	<form action="login.jsp">
-	<h1>${sessionScope.value }</h1>
-	<button>로그아웃</button>
-	
+	<form method="post">
+	이름 : <input type="text" name="name"/>
+	<br>
+	<input type="submit"/>
 	</form>
+</div>
+
+<div class="container mt-5">
+<c:if test="${not empty param.name }">
+<c:out value="${param.name }님 반갑습니다."/>
+</c:if>
 </div>
 </body>
 </html>
