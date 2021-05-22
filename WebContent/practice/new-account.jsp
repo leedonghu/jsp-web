@@ -21,33 +21,16 @@
 <div class="input-group mb-3">
   <input type="text" class="form-control" name="id" placeholder="아이디" aria-label="Recipient's username" aria-describedby="basic-addon2">
   <!-- <input type="submit"  class="input-group-text" id="basic-addon2" value="확인"> -->
+  <button type="button" class="btn btn-primary">확인</button>
 </div>
 
 <div class="input-group mb-3">
   <input type="password" class="form-control" name="password" placeholder="비밀번호" aria-label="Recipient's username" aria-describedby="basic-addon2">
  <!-- <input type="submit"  class="input-group-text" id="basic-addon2" value="확인"> --> 
+ <button type="button" class="btn btn-primary">확인</button>
 </div>
 
-<%
-String id = request.getParameter("id");
-String password = request.getParameter("password");
-String name = request.getParameter("name");
 
-session.setAttribute("name", name);
-		
-Map<String, String> map = new HashMap<>();
-
-if(map == null){
-	map = new HashMap<String, String>();
-	application.setAttribute("acc", map);
-}
-if(id != null){
-	map.put(id, password);
-}
-
-
-
-%>
 
 <label for="basic-url" class="form-label">주민번호</label>
 <div class="input-group mb-3">

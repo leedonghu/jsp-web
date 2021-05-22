@@ -16,26 +16,48 @@
 <div class="container">
 	
 <%
-	String id = request.getParameter("id1");
-	String password = request.getParameter("password1");
-
-	Object o1 = application.getAttribute("acc");
-	HashMap<String, String> map1 = (HashMap<String, String>)o1; 
-
-
-if(map1 != null){
-	if (password.equals(map1.get(id))) {
+	String id1 = request.getParameter("id1");
+	String password1 = request.getParameter("password1");
+    Object o1 = session.getAttribute("id");
+    String id = (String) o1;
+    Object o2 = session.getAttribute("password");
+    String password = (String) o2;
 %>
-		<jsp:forward page="logout.jsp"></jsp:forward>
-		<%
-			} else {
+
+<%
+if(id1.equals(id)){
+	if(password1.equals(password)){
+		session.setAttribute("id1", id1);
+		session.setAttribute("password1", password1);
 		%>
-		<jsp:forward page="loginForm.jsp"></jsp:forward>
-		<%
-			}
-		
-		}
+	<script>
+	alert("인증되었습니다.");
+	location.href="logout.jsp"
+	</script>
+	
+	<%
+	} else {
 		%>
+		<script>
+	alert("비밀번호가 다릅니다.");
+	location.href="loginForm.jsp"
+	</script>
+	<%
+	
+	}
+} else {
+	%>
+	<script>
+	alert("아이디가 다릅니다.");
+	location.href="loginForm.jsp"
+	</script>
+<%
+}
+%>
+	
+
+
+
 	
 </div>
 
