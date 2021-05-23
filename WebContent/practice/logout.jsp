@@ -14,7 +14,7 @@
 
 <div class="container">
 	<form action="login.jsp">
-	<h1>${sessionScope.value }</h1>
+	<h3>"<%=session.getAttribute("name") %>"님 안녕하세요</h3>
 	<button>로그아웃</button>
 	
 	</form>

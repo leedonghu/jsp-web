@@ -7,8 +7,10 @@
 <%
 String id = request.getParameter("id");
 String password = request.getParameter("password");
+String name = request.getParameter("name");
 session.setAttribute("id", id);
 session.setAttribute("password", password);
+session.setAttribute("name", name);
 %>
 <!DOCTYPE html>
 <html>
