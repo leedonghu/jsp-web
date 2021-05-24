@@ -15,7 +15,7 @@
 <div class="container-fluid">
       <my:navbar></my:navbar>
   <div class="row">
-          <div class="col"></div>
+          <div class="col-2"></div>
           <div class="col"></div>
           <div class="col-2" style="border:2px solid black;">
           <form action="loginForm.jsp">
