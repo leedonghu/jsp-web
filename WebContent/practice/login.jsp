@@ -2,6 +2,7 @@
 <%@ page import="java.util.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="my" tagdir="/WEB-INF/tags/ch16/lecture" %>
 
 <% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
@@ -11,41 +12,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div class="container">
-        <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-            <a class="navbar-brand" href="#">Logo</a>
-
-            <!-- Links -->
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link 1</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link 2</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                  Dropdown link
-                </a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">Link 1</a>
-                  <a class="dropdown-item" href="#">Link 2</a>
-                  <a class="dropdown-item" href="#">Link 3</a>
-                </div>
-              </li>
-            </ul>
-
-            <form class="form-inline" action="/action_page.php">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                <button class="btn btn-success" type="submit">Search</button>
-              </form>
-          </nav>
+<div class="container-fluid">
+      <my:navbar></my:navbar>
   <div class="row">
           <div class="col"></div>
           <div class="col"></div>
-          <div class="col" style="border:2px solid black;">
+          <div class="col-2" style="border:2px solid black;">
           <form action="loginForm.jsp">
-  
+  <p style="font-size:160%;"></p>
   <button type="submit" class="btn btn-secondary btn-outline-light btn-lg">로그인</button>
 </form>
           </div>
