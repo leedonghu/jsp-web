@@ -39,11 +39,16 @@
                 <input class="form-control mr-sm-2" type="text" placeholder="Search">
                 <button class="btn btn-success" type="submit">Search</button>
               </form>
+          </nav>
+  <div class="row">
+          <div class="col"></div>
+          <div class="col"></div>
+          <div class="col" style="border:2px solid black;">
           <form action="loginForm.jsp">
   
   <button type="submit" class="btn btn-secondary btn-outline-light btn-lg">로그인</button>
 </form>
-          </nav>
+          </div>
     </div>
 <div class="container">
 	

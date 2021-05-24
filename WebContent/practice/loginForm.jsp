@@ -8,9 +8,12 @@
 String id = request.getParameter("id");
 String password = request.getParameter("password");
 String name = request.getParameter("name");
+
+if(id != null){
 session.setAttribute("id", id);
 session.setAttribute("password", password);
 session.setAttribute("name", name);
+}
 %>
 <!DOCTYPE html>
 <html>
