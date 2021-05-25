@@ -12,9 +12,13 @@ String text = request.getParameter("text");
 Object o1 = session.getAttribute("board");
 Map<String, String> map = (Map<String, String>) o1;
 
+if(title != null){
+	session.setAttribute("title", title);
+}
+
 if(map == null){
 	map = new HashMap<String, String>();
-	session.setAttribute("borad", map);
+	session.setAttribute("board", map);
 }
 
 if(title != null){

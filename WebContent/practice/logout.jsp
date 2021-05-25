@@ -19,14 +19,18 @@
           <div class="row">
           <div class="col-2"></div>
           <div class="col"></div>
-          <div class="col-2" style="border:2px solid black;">
+          <div class="col-2" style="border:0.1px solid black;">
 	<form action="login.jsp">
-	<p style="font-size:160%;">"<%=session.getAttribute("name") %>"님 안녕하세요</p>
+	<nav class="navbar navbar-light bg-light">
+  <span class="navbar-brand mb-0 h1">
+	<p style="font-size:80%;">"<%=session.getAttribute("name") %>"님 안녕하세요</p>
 	<button>로그아웃</button>
+  </span>
+</nav>
+	</form>
           </div>
           </div>
 	
-	</form>
 </div>
 </body>
 </html>

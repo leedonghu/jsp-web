@@ -17,10 +17,14 @@
   <div class="row">
           <div class="col-2"></div>
           <div class="col"></div>
-          <div class="col-2" style="border:2px solid black;">
+          <div class="col-2" style="border:0.5px solid black;">
           <form action="loginForm.jsp">
+          <nav class="navbar navbar-light bg-light">
+  <span class="navbar-brand mb-0 h1">
   <p style="font-size:160%;"></p>
   <button type="submit" class="btn btn-secondary btn-outline-light btn-lg">로그인</button>
+  </span>
+</nav>
 </form>
           </div>
     </div>

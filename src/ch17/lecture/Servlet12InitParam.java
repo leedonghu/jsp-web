@@ -1,28 +1,24 @@
-package practice;
+package ch17.lecture;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.HashMap;
-import java.util.Map;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class Board
+ * Servlet implementation class Servlet12InitParam
  */
-//@WebServlet("/Board")
-public class Board extends HttpServlet {
+//@WebServlet("/Servlet12InitParam")
+public class Servlet12InitParam extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Board() {
+    public Servlet12InitParam() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,18 +27,19 @@ public class Board extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		PrintWriter out = response.getWriter();
-		Object o1 = session.getAttribute("board");
-		Map<String, String> map = (Map<String, String>) o1;
-		out.print(session.getAttribute("title"));
+		ServletConfig config = getServletConfig();
+		String url = config.getInitParameter("url");
+		String password = config.getInitParameter("password");
+		
+		response.getWriter().print(url + ", " + password);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

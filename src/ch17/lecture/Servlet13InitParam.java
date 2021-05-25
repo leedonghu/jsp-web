@@ -1,48 +1,56 @@
-package practice;
+package ch17.lecture;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.HashMap;
-import java.util.Map;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class Board
+ * Servlet implementation class Servlet13InitParam
  */
-//@WebServlet("/Board")
-public class Board extends HttpServlet {
+//@WebServlet("/Servlet13InitParam")
+public class Servlet13InitParam extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Board() {
+    public Servlet13InitParam() {
         super();
         // TODO Auto-generated constructor stub
+    }
+    
+    @Override
+    public void init() throws ServletException {
+    	// TODO Auto-generated method stub
+    	super.init();
+    	
+    	ServletConfig config = getServletConfig();
+    	String name = config.getInitParameter("name");
+    	String home = config.getInitParameter("home");
+    	
+    	System.out.println(name);
+    	System.out.println(home);
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		PrintWriter out = response.getWriter();
-		Object o1 = session.getAttribute("board");
-		Map<String, String> map = (Map<String, String>) o1;
-		out.print(session.getAttribute("title"));
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }
