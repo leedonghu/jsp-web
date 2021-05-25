@@ -17,7 +17,7 @@
 </head>
 <body>
 <div class="container">
-	<form action="boardView.jsp">
+	<form action="boardView.jsp" method="post">
 	<div class="form-group">
     <label for="exampleFormControlInput1">제목</label>
     <input type="text" class="form-control" id="exampleFormControlInput1"  name="title">

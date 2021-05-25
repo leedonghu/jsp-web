@@ -13,4 +13,32 @@
   <session-config>
   <session-timeout>30</session-timeout>
   </session-config>
+  
+  <servlet>
+  <servlet-name>
+  servlet03
+  </servlet-name>
+  <servlet-class>
+  ch17.lecture.Servlet03
+  </servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>
+  servlet03
+  </servlet-name>
+  <url-pattern>
+  /servlet03
+  </url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>now</servlet-name>
+  <servlet-class>ch17.textbook.NowServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>now</servlet-name>
+  <url-pattern>/now</url-pattern>
+  </servlet-mapping>
 </web-app>
