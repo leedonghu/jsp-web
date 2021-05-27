@@ -11,6 +11,10 @@
   </welcome-file-list>
   
   <listener>
+  <listener-class>practice.HomepageListener</listener-class>
+  </listener>
+  
+  <listener>
   <listener-class>ch20.AppListener01</listener-class>
   </listener>
   
