@@ -47,18 +47,18 @@ public class BoardWriterServlet extends HttpServlet {
 		
 		ServletContext application = request.getServletContext();
 		List<Board> list = (List<Board>) application.getAttribute("boards");
-		
+		//요청정보분석
 		String title = request.getParameter("title");
 		String text = request.getParameter("text");
 		String writer = request.getParameter("writer");
-		
+		//비지니스 로직 실행
 		Board board = new Board();
 		board.setTitle(title);
 		board.setText(text);
 		board.setWriter(writer);
 		
 		list.add(board);
-		
+		// 적절한 경로로 forward or redirect
 		response.sendRedirect(request.getContextPath()+"/sample1/list");
 	}
 

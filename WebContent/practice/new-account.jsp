@@ -18,11 +18,15 @@
   <input type="text" class="form-control" placeholder="이름" aria-label="Username" aria-describedby="basic-addon1" name="name">
 </div>
 
+
 <div class="input-group mb-3">
-  <input type="text" class="form-control" name="id" placeholder="아이디" aria-label="Recipient's username" aria-describedby="basic-addon2">
+  <input id="inputId" type="text" class="form-control" name="id" placeholder="아이디" aria-label="Recipient's username" aria-describedby="basic-addon2">
   <!-- <input type="submit"  class="input-group-text" id="basic-addon2" value="확인"> -->
-  <button type="button" class="btn btn-primary">확인</button>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onclick="getInputValue();">
+  확인
+</button>
 </div>
+
 
 <div class="input-group mb-3">
   <input type="password" class="form-control" name="password" placeholder="비밀번호" aria-label="Recipient's username" aria-describedby="basic-addon2">
@@ -51,6 +55,42 @@
 <button type="submit" class="btn btn-primary btn-lg" onclick="location.href='loginForm.jsp'">확인</button>
 </form>
 
+
+ 
+ 
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">통과</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+function getInputValue(){
+
+	var valueById = $("#inputId").val();
+	var checkId = "^[a-zA-Z0-9]{5, 10}";
+	if (checkId == valueById) {
+		$("#exampleModal").modal("show");
+	}
+};
+</script>
 
 
 </body>
