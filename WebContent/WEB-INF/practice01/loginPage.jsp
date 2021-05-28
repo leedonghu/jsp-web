@@ -25,24 +25,36 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel" style="text-align:center;">Login</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       
-      <form>
-          <div class="form-group">
+      <form action="<%=request.getContentType() %>/practice/CheckId" method="post">
+          <div class="form-group row">
+          <div class="col-3"></div>
+          <div class="col">
             <label for="id" class="col-form-label">아이디:</label>
             <input type="text" class="form-control" id="id" size="40">
           </div>
-          <div class="form-group">
+          <div class="col-3"></div>
+          </div>
+          <div class="form-group row">
+          <div class="col-3"></div>
+          <div class="col">
             <label for="password" class="col-form-label">비밀번호:</label>
             <input class="form-control" id="password" size="40"></input>
           </div>
-          <div>
-        <button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
-        <button type="button" class="btn btn-secondary">회원가입</button>
+          <dlv class="col-3"></dlv>
+          </div>
+          <div class="row">
+          <div class="col"></div>
+          <div class="col-3">
+        <button type="submit" class="btn btn-primary" data-dismiss="modal">확인</button>
+          </div>
+        <button type="button" class="btn btn-secondary" onclick="location.href='/WEB-INF/practice01/newAccountPage.jsp'">회원가입</button>
+          <div class="col"></div>
           </div>
         </form>
      

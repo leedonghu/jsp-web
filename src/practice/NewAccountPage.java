@@ -1,8 +1,6 @@
 package practice;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class CheckId
+ * Servlet implementation class NewAccountPage
  */
-@WebServlet("/CheckId")
-public class CheckId extends HttpServlet {
+@WebServlet("/NewAccountPage")
+public class NewAccountPage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CheckId() {
+    public NewAccountPage() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,19 +34,8 @@ public class CheckId extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		
-		String checkId = "^[a-zA-Z0-9]{5, 10}";
-		String id = request.getParameter("id");
-		
-		if(checkId.equals(id)) {
-			String path = "/practice01/mainPage.jsp";
-			RequestDispatcher dispatcher = request.getRequestDispatcher(path);
-			dispatcher.forward(request, response);
-			
-		} 
-		response.sendRedirect("/practtice01/loginPage.jsp");
-		
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }
