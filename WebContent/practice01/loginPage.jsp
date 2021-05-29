@@ -31,12 +31,12 @@
         </button>
       </div>
       
-      <form action="<%=request.getContentType() %>/practice/CheckId" method="post">
+      <form action="<%=request.getContextPath() %>/CheckId" method="post">
           <div class="form-group row">
           <div class="col-3"></div>
           <div class="col">
             <label for="id" class="col-form-label">아이디:</label>
-            <input type="text" class="form-control" id="id" size="40">
+            <input type="text" class="form-control" id="id" size="40" name="id">
           </div>
           <div class="col-3"></div>
           </div>
@@ -44,16 +44,16 @@
           <div class="col-3"></div>
           <div class="col">
             <label for="password" class="col-form-label">비밀번호:</label>
-            <input class="form-control" id="password" size="40"></input>
+            <input class="form-control" id="password" size="40" name="password"></input>
           </div>
           <dlv class="col-3"></dlv>
           </div>
           <div class="row">
           <div class="col"></div>
           <div class="col-3">
-        <button type="submit" class="btn btn-primary" data-dismiss="modal">확인</button>
+        <button type="submit" class="btn btn-primary">확인</button>
           </div>
-        <button type="button" class="btn btn-secondary" onclick="location.href='/WEB-INF/practice01/newAccountPage.jsp'">회원가입</button>
+        <button type="button" class="btn btn-secondary" onclick="location.href='newAccountPage.jsp'">회원가입</button>
           <div class="col"></div>
           </div>
         </form>

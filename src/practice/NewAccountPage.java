@@ -1,11 +1,13 @@
 package practice;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class NewAccountPage
@@ -34,8 +36,28 @@ public class NewAccountPage extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html; charset=utf-8");
+		
+		String name = request.getParameter("name");
+		String id = request.getParameter("id");
+		String password = request.getParameter("password");
+		String mobileNum = request.getParameter("mobilNum");
+		String email = request.getParameter("email");
+		String address = request.getParameter("address");
+		
+		Account acc = new Account();
+		acc.setName(name);
+		acc.setId(id);
+		acc.setPassword(password);
+		acc.setMobileNum(mobileNum);
+		acc.setEmail(email);
+		acc.setAddress(address);
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("account", acc);
+		
+		response.sendRedirect(request.getContextPath()+"/practice01/loginPage.jsp");
 	}
 
 }
