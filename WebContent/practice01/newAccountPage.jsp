@@ -39,7 +39,7 @@
   <div class="input-group-prepend">
     <span class="input-group-text" id="basic-addon3">@</span>
   </div>
-  <input type="text" class="form-control" placeholder="비밀번호" aria-label="Username" aria-describedby="basic-addon3" name="password">
+  <input type="password" class="form-control" placeholder="비밀번호" aria-label="Username" aria-describedby="basic-addon3" name="password">
 </div>
 
 <div class="input-group mb-3">

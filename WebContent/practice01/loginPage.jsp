@@ -44,7 +44,7 @@
           <div class="col-3"></div>
           <div class="col">
             <label for="password" class="col-form-label">비밀번호:</label>
-            <input class="form-control" id="password" size="40" name="password"></input>
+            <input type="password" class="form-control" id="password" size="40" name="password"></input>
           </div>
           <dlv class="col-3"></dlv>
           </div>

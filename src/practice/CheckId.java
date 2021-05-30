@@ -53,16 +53,21 @@ public class CheckId extends HttpServlet {
 		if(id1 != null) {
 			
 			if(id.equals(id1)) {
-				String path = "/practice01/mainPage.jsp";
-				RequestDispatcher dispatcher = request.getRequestDispatcher(path);
-				dispatcher.forward(request, response);
+				if(password.equals(password1)) {
+					
+					String path = "/practice01/mainPage.jsp";
+					RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+					dispatcher.forward(request, response);
+				} else {
+					out.print("<script>alert('비밀번호가 다릅니다');location.href='<%=request.getContextPath()%>/practice01/loginPage.jsp'</script>");
+				}
 				
-			}else if(!id.equals(id1)) {
-				out.print("<script>alert('아이다가 다릅니다');location.href='/practice01/loginPage.jsp'</script>");
+			}else {
+				out.print("<script>alert('아이다가 다릅니다');location.href='<%=request.getContextPath()%>/practice01/loginPage.jsp'</script>");
 			}
-			out.print("<script>alert('비밀번호가 다릅니다');location.href='/practice01/loginPage.jsp'</script>");
+			
 		}
-		out.print("<script>alert('확인해 주세요');location.href='/practice01/loginPage.jsp'</script>");
+		
 	}
 
 }
