@@ -1,12 +1,13 @@
 package practice;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-import javax.servlet.annotation.WebListener;
 
 /**
  * Application Lifecycle Listener implementation class HomepageListener
@@ -35,7 +36,9 @@ public class HomepageListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce)  { 
          // TODO Auto-generated method stub
     	 ServletContext application = sce.getServletContext();
-    	 List<Account> list = new ArrayList<>();
+    	 Map<String, Account> map = new HashMap<>();
+    	 List<Map<String, Account>> list = new ArrayList<>();
+    	 
     	 application.setAttribute("list", list);
     }
 	

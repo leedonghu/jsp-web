@@ -2,14 +2,16 @@ package practice;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class CheckId
@@ -45,8 +47,8 @@ public class CheckId extends HttpServlet {
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 		
-		HttpSession session = request.getSession();
-		Account acc = (Account)session.getAttribute("account");
+		ServletContext application = request.getServletContext();
+		List<Map<String, Account>> list = (List<Map<String, Account>>)application.getAttribute("list");
 		String id1 = acc.getId();
 		String password1 = acc.getPassword();
 		

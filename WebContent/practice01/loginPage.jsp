@@ -17,9 +17,11 @@
 </head>
 <body>
 <div class="container">
+<div class="d-flex justify-content-center mt-3">
 	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal">
   로그인
 </button>
+</div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
@@ -52,8 +54,8 @@
           <div class="col"></div>
           <div class="col-3">
         <button type="submit" class="btn btn-primary">확인</button>
-          </div>
         <button type="button" class="btn btn-secondary" onclick="location.href='newAccountPage.jsp'">회원가입</button>
+          </div>
           <div class="col"></div>
           </div>
         </form>

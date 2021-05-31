@@ -10,3 +10,5 @@ SELECT COUNT(City) FROM Customers;
 SELECT COUNT(DISTINCT City) FROM Customers;
 
 SELECT DISTINCT City, Country FROM Customers;
+
+SELECT EmployeeID, LastName, FirstName, Notes FROM Employees

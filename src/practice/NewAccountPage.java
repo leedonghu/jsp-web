@@ -1,7 +1,11 @@
 package practice;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -54,8 +58,13 @@ public class NewAccountPage extends HttpServlet {
 		acc.setEmail(email);
 		acc.setAddress(address);
 		
-		HttpSession session = request.getSession();
-		session.setAttribute("account", acc);
+		Map<String, Account> map = new HashMap<>();
+		map.put(id, acc);
+		ServletContext application = request.getServletContext();
+		List<Map<String, Account>> list = (List<Map<String, Account>>)application.getAttribute("list");
+		list.add(map);
+		
+		
 		
 		response.sendRedirect(request.getContextPath()+"/practice01/loginPage.jsp");
 	}
