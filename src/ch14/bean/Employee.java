@@ -1,10 +1,22 @@
 package ch14.bean;
 
+import java.sql.Date;
+
 public class Employee {
 	private String empId;
 	private String lastName;
 	private String firstName;
 	private String notes;
+	private String photo;
+	private Date birthDate;
+	
+	public String getPhoto() {
+		return photo;
+	}
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+	
 	
 	public String getNotes() {
 		return notes;
@@ -29,5 +41,11 @@ public class Employee {
 	}
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
+	}
+	public Date getBirthDate() {
+		return birthDate;
+	}
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
 	}
 }
