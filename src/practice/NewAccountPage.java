@@ -58,11 +58,8 @@ public class NewAccountPage extends HttpServlet {
 		acc.setEmail(email);
 		acc.setAddress(address);
 		
-		Map<String, Account> map = new HashMap<>();
-		map.put(id, acc);
 		ServletContext application = request.getServletContext();
-		List<Map<String, Account>> list = (List<Map<String, Account>>)application.getAttribute("list");
-		list.add(map);
+		application.setAttribute("acc", acc);
 		
 		
 		

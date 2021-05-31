@@ -8,7 +8,7 @@
   <div class="col-8">
     <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 100px;">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<%=request.getContextPath() %>/practice01/mainBoard.jsp">Board <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Link</a>
@@ -22,7 +22,7 @@
   <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 100px;">
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-          ${account.name } 님
+          ${acc.name } 님
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
           <li><a class="dropdown-item" href="#">개인/보안</a></li>

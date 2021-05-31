@@ -54,7 +54,7 @@
           <div class="col"></div>
           <div class="col-3">
         <button type="submit" class="btn btn-primary">확인</button>
-        <button type="button" class="btn btn-secondary" onclick="location.href='newAccountPage.jsp'">회원가입</button>
+        <button type="button" class="btn btn-secondary" onclick="location.href='<%=request.getContextPath()%>/practice01/newAccountPage.jsp'">회원가입</button>
           </div>
           <div class="col"></div>
           </div>

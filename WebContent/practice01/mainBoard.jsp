@@ -26,17 +26,19 @@
 		<br>
 		<hr>
 		
+		<c:forEach items="${list1 }" var="i">
+		
 		<div class="d-flex justify-content-center mt-3">
-		<table class="table" style="width:525px; border: solid black">
+		<table class="table" style="width:525px;">
 		<tr>
-		<th>내이름</th>
+		<th>${acc.name }</th>
 		<th>시간</th>
 		<th></th>
 		</tr>
 		
 		<tr>
 		<td></td>
-		<td><textarea class="btn btn-outline-primary" readonly>${text }</textarea></td>
+		<td><textarea class="btn btn-outline-primary" readonly>${i }</textarea></td>
 		<td></td>
 		
 		</tr>
@@ -44,6 +46,7 @@
 		
 		</table>
 		</div>
+		</c:forEach>
 
 	</div>
 </body>
