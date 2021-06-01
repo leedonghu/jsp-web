@@ -1,7 +1,7 @@
 package practice;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -11,7 +11,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class BoardList
@@ -36,6 +35,10 @@ public class BoardList extends HttpServlet {
 		ServletContext application = request.getServletContext();
 		List<String> list = (List<String>)application.getAttribute("list1");
 		list.add(text);
+		
+		Date date = new Date(System.currentTimeMillis());
+		
+		request.setAttribute("date", date);
 		
 		
 		String path = "/practice01/mainBoard.jsp";

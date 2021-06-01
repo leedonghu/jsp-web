@@ -61,11 +61,15 @@ public class CheckId extends HttpServlet {
 					RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 					dispatcher.forward(request, response);
 				} else {
-					out.print("<script>alert('비빌번호가 다릅니다');location.href='practice01/loginPage.jsp'</script>");
+					out.print("<script>alert('비빌번호가 다릅니다');</script>");
+					String path = "/practice01/loginPage.jsp";
+					response.sendRedirect(path);
 				}
 				
 			}else {
-				out.print("<script>alert('아이디가 다릅니다');location.href='practice01/loginPage.jsp'</script>");
+				out.print("<script>alert('아이디가 다릅니다');</script>");
+				String path = "/practice01/loginPage.jsp";
+				response.sendRedirect(path);
 			}
 			
 		}
