@@ -22,14 +22,14 @@ import ch14.bean.Employee;
 /**
  * Servlet implementation class JDBC15InsertSelvet
  */
-@WebServlet("/JDBC15InsertSelvet")
-public class JDBC15InsertSelvet extends HttpServlet {
+@WebServlet("/JDBC15InsertServlet")
+public class JDBC15InsertServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public JDBC15InsertSelvet() {
+    public JDBC15InsertServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

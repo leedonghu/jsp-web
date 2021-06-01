@@ -16,7 +16,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <div class="container">
+<div class="d-flex justify-content-center mt-3">
+<img src="C:\Users\ehdgn\Desktop\claud.jpg" alt=".">
+</div>
+
 <div class="d-flex justify-content-center mt-3">
 	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal">
   로그인

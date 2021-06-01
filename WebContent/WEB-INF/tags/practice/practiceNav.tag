@@ -1,6 +1,6 @@
 <%@ tag language="java" pageEncoding="UTF-8"%>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar scroll</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="<%=request.getContextPath() %>/practice01/mainPage.jsp""><img src="C:\Users\ehdgn\Desktop\claud.jpg" alt="."></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -25,7 +25,7 @@
           ${acc.name } 님
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-          <li><a class="dropdown-item" href="#">개인/보안</a></li>
+          <li><a class="dropdown-item" href="<%=request.getContextPath() %>/Profile">프로필</a></li>
           <li><a class="dropdown-item" href="#">친구</a></li>
           <li><hr class="dropdown-divider"></li>
           <li><a class="dropdown-item" href="<%=request.getContextPath() %>/practice01/loginPage.jsp">로그아웃</a></li>

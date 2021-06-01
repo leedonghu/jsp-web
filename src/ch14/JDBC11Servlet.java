@@ -80,7 +80,7 @@ private Employee executeJDBC(String id) {
 				String firstName = rs.getString(3);
 				
 				employee = new Employee();
-				employee.setempId(empId);
+				employee.setId(Integer.parseInt(id));
 				employee.setLastName(lastName);
 				employee.setFirstName(firstName);
 				
