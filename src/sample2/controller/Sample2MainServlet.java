@@ -1,11 +1,6 @@
-package practice;
+package sample2.controller;
 
 import java.io.IOException;
-import java.util.Date;
-import java.util.List;
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class BoardList
+ * Servlet implementation class Sample2MainServlet
  */
-@WebServlet("/BoardList")
-public class BoardList extends HttpServlet {
+@WebServlet("/sample2/main")
+public class Sample2MainServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BoardList() {
+    public Sample2MainServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,28 +26,8 @@ public class BoardList extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String text = request.getParameter("board");
-		ServletContext application = request.getServletContext();
-		List<Board> list = (List<Board>)application.getAttribute("list1");
-		
-		Date date = new Date(System.currentTimeMillis());
-		String dates = date.toString();
-		
-		Board board = new Board();
-		board.setText(text);
-		board.setTime(dates);
-		
-		
-		list.add(board);
-		
-		
-		
-		request.setAttribute("date", dates);
-		
-		
-		String path = "/practice01/mainBoard.jsp";
-		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
-		dispatcher.forward(request, response);
+		String path = "/WEB-INF/sample2/main.jsp";
+		request.getRequestDispatcher(path).forward(request, response);
 	}
 
 	/**

@@ -1,4 +1,4 @@
-package ch14;
+package practice;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -16,19 +16,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import ch14.bean.Customer;
-import ch14.bean.Employee;
 
 /**
- * Servlet implementation class JDBC13Servlet
+ * Servlet implementation class SerchFriendServlet
  */
-@WebServlet("/JDBC13Servlet")
-public class JDBC13Servlet extends HttpServlet {
+@WebServlet("/SerchFriendServlet")
+public class SerchFriendServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public JDBC13Servlet() {
+    public SerchFriendServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,27 +36,36 @@ public class JDBC13Servlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
 		
-		String pageStr = request.getParameter("page");
-		int page = 1;
-		if(pageStr != null) {
-			page = Integer.parseInt(pageStr);
-		}
-		List<Customer> list = executeJDBC(page);
-		request.setAttribute("customers", list);
+		String str = request.getParameter("friend");
 		
-		String path= "/ch14/jdbc13.jsp";
+		List<Friend> list = executeJDBC(str);
+		request.setAttribute("friend", list);
+		
+		String path= "/practice01/friendPage.jsp";
 		request.getRequestDispatcher(path).forward(request, response);
 	}
 	
-	private List<Customer> executeJDBC(int page) {
+	private List<Friend> executeJDBC(String str) {
 
-		List<Customer> list = new ArrayList<>(); // 리턴할 객체
+		List<Friend> list = new ArrayList<>(); // 리턴할 객체
 		
-		String sql = "SELECT CustomerID, CustomerName, City " + 
-				"FROM Customers "
-				+ "ORDER BY CustomerID "
-				+ "LIMIT " + ((page-1) * 5) + ", 5";
+		String sql = "SELECT LastName, "
+				+ "FirstName, "
+				+ "Age, "
+				+ "City, "
+				+ "Country "
+				+ "FROM Friends " + 
+				"WHERE LastName LIKE '" + str + "'%' ";
 
 		String url = "jdbc:mysql://3.34.132.204/test"; // 본인 ip
 		String user = "root";
@@ -82,12 +90,15 @@ public class JDBC13Servlet extends HttpServlet {
 
 			// 결과 탐색
 			while (rs.next()) {
-				Customer customer = new Customer();
-				customer.setId(rs.getInt(1));
-				customer.setName(rs.getString(2));
-				customer.setCity(rs.getString(3));
+				Friend friend = new Friend();
+				friend.setLastName(rs.getNString(1));
+				friend.setFirstName(rs.getString(2));
+				friend.setAge(rs.getInt(3));
+				friend.setCity(rs.getString(4));
+				friend.setCountry(rs.getString(5));
 				
-				list.add(customer);
+				
+				list.add(friend);
 			}
 
 		} catch (Exception e) {
@@ -126,12 +137,6 @@ public class JDBC13Servlet extends HttpServlet {
 
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+	
 
 }

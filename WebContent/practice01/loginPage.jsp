@@ -19,7 +19,7 @@
 
 <div class="container">
 <div class="d-flex justify-content-center mt-3">
-<img src="C:\Users\ehdgn\Desktop\claud.jpg" alt=".">
+<img src="<%=request.getContextPath() %>/res/img/구름.png" alt=".">
 </div>
 
 <div class="d-flex justify-content-center mt-3">

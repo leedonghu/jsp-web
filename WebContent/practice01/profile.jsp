@@ -35,25 +35,25 @@ $(document).ready(function() {
   <div class="input-group-prepend">
     <span class="input-group-text" id="basic-addon1">이름</span>
   </div>
-  <input type="text" class="form-control" placeholder="이름" aria-label="Username" aria-describedby="basic-addon1" value="${acc.name }" readonly>
+  <input type="text" class="form-control" placeholder="이름" aria-label="Username" aria-describedby="basic-addon1" value="${acc.name }" readonly name="name">
 </div><br>
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="basic-addon1">전화번호</span>
   </div>
-  <input type="text" class="form-control" placeholder="전화번호" aria-label="Username" aria-describedby="basic-addon1" value="${acc.mobileNum }" readonly>
+  <input type="text" class="form-control" placeholder="전화번호" aria-label="Username" aria-describedby="basic-addon1" value="${acc.mobileNum }" readonly name="mobileNum">
 </div><br>
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="basic-addon1">이메일</span>
   </div>
-  <input type="text" class="form-control" placeholder="이메일" aria-label="Username" aria-describedby="basic-addon1" value="${acc.email }" readonly>
+  <input type="text" class="form-control" placeholder="이메일" aria-label="Username" aria-describedby="basic-addon1" value="${acc.email }" readonly name="email">
 </div><br>
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="basic-addon1">주소</span>
   </div>
-  <input type="text" class="form-control" placeholder="주소" aria-label="Username" aria-describedby="basic-addon1" value="${acc.address }" readonly>
+  <input type="text" class="form-control" placeholder="주소" aria-label="Username" aria-describedby="basic-addon1" value="${acc.address }" readonly name="address">
 </div><br>
 <button type="button" class="btn btn-primary" id="button1">수정</button>
 <input hidden type="submit" id="submit1" class="btn btn-primary" value="확인" />

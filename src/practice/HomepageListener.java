@@ -37,10 +37,10 @@ public class HomepageListener implements ServletContextListener {
          // TODO Auto-generated method stub
     	 ServletContext application = sce.getServletContext();
     	 Map<String, Account> map = new HashMap<>();
-    	 List<Account> list = new ArrayList<>();
-    	 List<String> list1 = new ArrayList<>();
+    	// List<Friend> list = new ArrayList<>();
+    	 List<Board> list1 = new ArrayList<>();
     	 
-    	 application.setAttribute("list", list);
+    	// application.setAttribute("list", list);
     	 application.setAttribute("list1", list1);
     }
 	

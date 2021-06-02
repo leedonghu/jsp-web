@@ -32,13 +32,13 @@
 		<table class="table" style="width:525px;">
 		<tr>
 		<th>${acc.name }</th>
-		<th>${date }</th>
+		<th>${i.time }</th>
 		<th></th>
 		</tr>
 		
 		<tr>
 		<td></td>
-		<td><c:out value="${i }"></c:out></td>
+		<td><c:out value="${i.text }"></c:out></td>
 		<td></td>
 		
 		</tr>

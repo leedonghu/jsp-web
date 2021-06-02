@@ -36,6 +36,8 @@ public class ProfileModifyServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		
 		String name = request.getParameter("name");
 		String mobileNum = request.getParameter("mobileNum");
 		String email = request.getParameter("email");
@@ -51,8 +53,8 @@ public class ProfileModifyServlet extends HttpServlet {
 		
 		
 		
-		String path = "/practice01/profile.jsp";
-		request.getRequestDispatcher(path).forward(request, response);
+		String path = request.getContextPath()+"/practice01/profile.jsp";
+		response.sendRedirect(path);
 	}
 
 }
