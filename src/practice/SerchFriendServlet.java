@@ -65,7 +65,7 @@ public class SerchFriendServlet extends HttpServlet {
 				+ "City, "
 				+ "Country "
 				+ "FROM Friends " + 
-				"WHERE LastName LIKE '" + str + "'%' ";
+				"WHERE LastName LIKE '" + str + "%' ";
 
 		String url = "jdbc:mysql://3.34.132.204/test"; // 본인 ip
 		String user = "root";
