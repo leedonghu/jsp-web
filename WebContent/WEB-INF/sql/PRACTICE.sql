@@ -1,9 +1,10 @@
 SELECT LastName, FirstName, Age, City, Country from Friends
-WHERE LastName like '김%'
-limit 5, 5;
-
-SELECT LastName, FirstName, Age, City, Country from Friends
 WHERE LastName like '김%';
+
+
+SELECT LastName, FirstName, Age, City, Country from Friends;
+
+WHERE LastName like '이%'
 
 INSERT into Friends
 (LastName, FirstName, Age, City, Country)
