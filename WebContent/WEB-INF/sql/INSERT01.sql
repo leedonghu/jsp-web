@@ -9,5 +9,6 @@ INSERT INTO Customers
 values
 (93, 'choi', 'park', 'Gwangju', 'SEOUL', '00000', 'korea');
 
+select * from Employees;
 
 

@@ -1,4 +1,4 @@
-package sample2.controller;
+package practice02.servlet;
 
 import java.io.IOException;
 import java.sql.Date;
@@ -9,20 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import sample2.bean.Member;
-import sample2.dao.MemberDao;
+import practice02.bean.Account;
 
 /**
- * Servlet implementation class Sample2SingUpServlet
+ * Servlet implementation class NewAccountServlet
  */
-@WebServlet("/sample2/signup")
-public class Sample2SingUpServlet extends HttpServlet {
+@WebServlet("/practice02/account")
+public class NewAccountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Sample2SingUpServlet() {
+    public NewAccountServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,8 +30,11 @@ public class Sample2SingUpServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String path = "/WEB-INF/sample2/signup.jsp";
+
+		//로그인 페이지에서 받은 요청을 회원가입 폼이 있는 페이지로 이동
+		String path = "/WEB-INF/practice02/accountForm.jsp";
 		request.getRequestDispatcher(path).forward(request, response);
+		
 		
 	}
 
@@ -40,36 +42,24 @@ public class Sample2SingUpServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		
-		//request parameter 수집
+		//회원가입 폼에서 받은 정보를 받음
+		String name = request.getParameter("name");
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
-		String name = request.getParameter("name");
+		String mobileNum = request.getParameter("mobileNum");
+		String email = request.getParameter("email");
+		String address = request.getParameter("address");
 		String birth = request.getParameter("birth");
 		
-		//Member bean 완성
-		Member member = new Member();
-		member.setId(id);
-		member.setPassword(password);
-		member.setName(name);
-		member.setBirth(Date.valueOf(birth));
-		
-		//dao insert 메소드 호출
-		MemberDao dao = new MemberDao();
-		boolean ok = dao.insert(member);
-		
-		
-		//forward or redirect
-		if (ok) {
-			String path = request.getContextPath() + "/sample2/list";
-			response.sendRedirect(path);
-		} else {
-			request.setAttribute("message", "가입 실패");
-			
-			String path = "/WEB-INF/sample2/signup.jsp";
-			request.getRequestDispatcher(path).forward(request, response);
-		}
+		//Account 객체를 만들어 그 안에 저장
+		Account acc = new Account();
+		acc.setName(name);
+		acc.setId(id);
+		acc.setPassword(password);
+		acc.setMobileNum(mobileNum);
+		acc.setEmail(email);
+		acc.setAddress(address);
+		acc.setBirth(Date.valueOf(birth)); // valueOf메소드로 string을 convert해줌
 		
 	}
 
