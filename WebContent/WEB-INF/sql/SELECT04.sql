@@ -6,7 +6,7 @@ From Customers
 where CustomerID =1;
 
 select CustomerName, CustomerID, City
-from Customers
+from CustomersFriends
 where CustomerID = 2;
 
 select * from Employees
