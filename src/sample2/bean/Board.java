@@ -1,6 +1,7 @@
 package sample2.bean;
 
 import java.sql.Timestamp;
+import java.time.Instant;
 
 public class Board {
 	private String title;
@@ -8,6 +9,30 @@ public class Board {
 	private int id;
 	private String memberId;
 	private Timestamp inserted;
+	
+	public String getTimeAgo() {
+		long now = System.currentTimeMillis();
+		long inserted = this.inserted.getTime();
+		
+		long diff = now - inserted;
+		
+		diff /= 1000;
+		
+		if(diff < 60 * 60) {
+			return (diff / 60) + "분 전";
+		}else if(diff < 60* 60 * 24) {
+			return (diff / (60 * 60)) + "시간 전";
+		}else {
+			Instant instant = this.inserted.toInstant();
+			return instant.toString();
+		}
+	}
+	
+	// get메소드를 만들어서 property처럼 사용할 수 있음
+	public String getMemberIdHidden() {
+		return memberId.substring(0, 1) + "****";
+	}
+	
 	public String getTitle() {
 		return title;
 	}
