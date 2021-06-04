@@ -14,7 +14,7 @@
 <s2:navbar></s2:navbar>
 <div class="container">
 <h1>로그인</h1>
-<form action="<%=request.getContextPath() %>/sample2/login" method="post">
+<form action="<%=request.getContextPath() %>/sample2/member/login" method="post">
 id <input type="text" name="id"><br>
 pw <input tyoe="password" name="password"><br>
 <input type="submit" value="로그인">

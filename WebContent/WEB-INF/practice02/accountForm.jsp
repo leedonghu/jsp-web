@@ -14,6 +14,31 @@
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp" %>
 
 <title>Insert title here</title>
+
+<script>
+var url = "${pageContext.request.contextPath}"+"/practice02/checkId"
+
+$(document).ready(function() {
+	$("#button1").click(function() {
+		var id = $("#input1").val();
+		
+		$.post(url, {id: id}, function(data) {
+			if (data == 'ok') {
+				// 가입 가능 메세지
+				// console.log("ok");
+				alert("사용 가능합니다.");
+			} else if(data == 'not ok') {
+				// 가입 불가능 메세지
+				// console.log("not ok");
+				alert("이미 존재하는 아이디입니다.");
+			} else {
+				alert("아이디 패턴을 확인해주세요.")
+			}
+		});
+	});
+});
+</script>
+
 </head>
 <body>
 <div class="container">
@@ -32,10 +57,12 @@
 </div>
 
 <div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="basic-addon2">@</span>
+ <span class="input-group-text" id="basic-addon2">@</span>
+  <input type="text" class="form-control" placeholder="아이디" aria-label="Recipient's username" aria-describedby="button-addon2" id="input1" name="id">
+  
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="button" id="button1">확인</button>
   </div>
-  <input type="text" class="form-control" placeholder="아이디" aria-label="Username" aria-describedby="basic-addon2" name="id">
 </div>
 
 <div class="input-group mb-3">

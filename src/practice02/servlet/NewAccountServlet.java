@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import practice02.bean.Account;
+import practice02.dao.AccountDao;
 
 /**
  * Servlet implementation class NewAccountServlet
@@ -60,6 +61,21 @@ public class NewAccountServlet extends HttpServlet {
 		acc.setEmail(email);
 		acc.setAddress(address);
 		acc.setBirth(Date.valueOf(birth)); // valueOf메소드로 string을 convert해줌
+		
+		//데이터베이스에 회원가입폼에서 받은 정보를 저장
+		AccountDao dao = new AccountDao();
+		boolean ok = dao.insertAcc(acc);
+		
+		//저장이 완료되면 시작페이지로 이동
+		if (ok) {
+			String path = request.getContextPath() + "/practice02/start";
+			response.sendRedirect(path);
+		} else {
+			
+			//저장이 실패하면 회원가입폼으로 이동
+			String path = "/WEB-INF/practice02/accountForm.jsp";
+			request.getRequestDispatcher(path).forward(request, response);
+		}
 		
 	}
 

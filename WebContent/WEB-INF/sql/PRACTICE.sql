@@ -27,3 +27,25 @@ CREATE TABLE Account (
     inserted TIMESTAMP
 );
 
+CREATE TABLE Account
+(
+id VARCHAR(255) PRIMARY KEY,
+name VARCHAR(255) not NULL,
+password VARCHAR(255) NOT NULL,
+mobileNum VARCHAR(255) NOT NULL,
+email VARCHAR(255) NOT NULL,
+address VARCHAR(255) NOT NULL,
+birth DATE NOT NULL
+
+);
+
+SELECT id FROM Account;
+DESC Account;
+SELECT * FROM Board;
+SELECT * FROM Member;
+DESC Board;
+
+ALTER TABLE Board
+ADD FOREIGN KEY (memberId)
+REFERENCES Member(id);
+

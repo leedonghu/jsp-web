@@ -1,0 +1,9 @@
+CREATE TABLE Board
+(
+id INT PRIMARY KEY AUTO_INCREMENT,
+title VARCHAR(255) not NULL,
+body VARCHAR(2047) not null,
+memberId VARCHAR(255) NOT NULL,
+inserted TIMESTAMP DEFAULT now()
+);
+DESC Board;

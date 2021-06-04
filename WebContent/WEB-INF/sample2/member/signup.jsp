@@ -10,7 +10,7 @@
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp" %>
 <title>Insert title here</title>
 <script>
-var url = "${pageContext.request.contextPath}"+"/sample2/checkdup"
+var url = "${pageContext.request.contextPath}"+"/sample2/member/checkdup"
 
 $(document).ready(function() {
 	$("#button1").click(function() {
@@ -35,7 +35,7 @@ $(document).ready(function() {
 <body>
 
 <div class="container">
-	<form action="${pageContext.request.contextPath }/sample2/signup" method="post">
+	<form action="${pageContext.request.contextPath }/sample2/member/signup" method="post">
 	id: 
 	<input type="text" name="id" id="input1">
 	<button id="button1" type="button">중복확인</button>

@@ -1,7 +1,6 @@
-package sample2.controller;
+package practice02.servlet;
 
 import java.io.IOException;
-import java.sql.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,20 +8,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import sample2.bean.Member;
-import sample2.dao.MemberDao;
+import practice02.dao.AccountDao;
 
 /**
- * Servlet implementation class Sample2ModifyServlet
+ * Servlet implementation class CheckIdServlet
  */
-@WebServlet("/sample2/modify")
-public class Sample2ModifyServlet extends HttpServlet {
+@WebServlet("/practice02/checkId")
+public class CheckIdServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Sample2ModifyServlet() {
+    public CheckIdServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,35 +38,22 @@ public class Sample2ModifyServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		
+		//input에서 받아온 id 파라미터 값과 정규표현식
 		String id = request.getParameter("id");
-		String password = request.getParameter("password");
-		String name= request.getParameter("name");
-		String birth = request.getParameter("birth");
+		String idForm = "^[a-zA-Z0-9]{5,10}$";
 		
-		Member member = new Member();
-		member.setId(id);
-		member.setPassword(password);
-		member.setName(name);
-		member.setBirth(Date.valueOf(birth));
+		AccountDao dao = new AccountDao();
 		
-		MemberDao dao = new MemberDao();
-		boolean ok = dao.update(member);
-		String message = "";
-		if(ok) {
-			message = "변경 완료";
-		}else {
-			message = "변경 실패";
+		//id와 정규표현식을 비교하여 아이디 생성 가능 여부 체크
+		if(id.matches(idForm)) {
+			if(dao.existId(id)) {
+				response.getWriter().append("not ok");
+			} else {
+				response.getWriter().append("ok");
+			}
+		} else {
+			response.getWriter().append("not good");
 		}
-		
-		request.setAttribute("message", message);
-		request.setAttribute("member", member);
-		
-		String path = "/WEB-INF/sample2/info.jsp";
-		request.getRequestDispatcher(path).forward(request, response);
-			
-		
-		
 		
 	}
 
