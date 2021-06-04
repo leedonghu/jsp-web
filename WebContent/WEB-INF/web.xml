@@ -193,4 +193,14 @@
   <url-pattern>/sample2/member/list</url-pattern>
   </filter-mapping>
   
+  <filter>
+  <filter-name>charSet</filter-name>
+  <filter-class>practice02.filter.CharSetFilter</filter-class>
+  </filter>
+  
+  <filter-mapping>
+  <filter-name>charSet</filter-name>
+  <url-pattern>/practice02/*</url-pattern>
+  </filter-mapping>
+  
 </web-app>

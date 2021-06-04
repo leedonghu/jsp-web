@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import practice02.bean.Account;
 
@@ -111,5 +112,46 @@ public class AccountDao {
 		
 		return false;
 	}
+
+
+	public Account getAccount(String id) {
+		String sql = "SELECT id, name, password, mobileNum, email, address, birth "
+				+ "FROM Account "
+				+ "WHERE id = ? ";
+		
+		ResultSet rs = null;
+		
+		try(
+			Connection con = DriverManager.getConnection(url, user, password);
+			PreparedStatement pstmt = con.prepareStatement(sql)	
+				){
+			pstmt.setString(1, id);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				Account acc = new Account();
+				acc.setId(rs.getString(1));
+				acc.setName(rs.getString(2));
+				acc.setPassword(rs.getString(3));
+				acc.setMobileNum(rs.getString(4));
+				acc.setEmail(rs.getString(5));
+				acc.setAddress(rs.getString(6));
+				acc.setBirth(rs.getDate(7));
+						
+				return acc;		
+			}
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		return null;
+	}
+	
+	
+	
 
 }

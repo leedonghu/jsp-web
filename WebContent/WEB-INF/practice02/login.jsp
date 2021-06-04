@@ -14,8 +14,10 @@
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp" %>
 
 <title>Insert title here</title>
+
 </head>
 <body>
+
 <div class="container">
          <!-- 바탕에 구름 그림 삽입-->
 		<div class="d-flex justify-content-center mt-3">
@@ -42,7 +44,7 @@
 						</button>
 					</div>
 
-					<form action="<%=request.getContextPath() %>/CheckId" method="post">
+					<form action="<%=request.getContextPath() %>/practice02/checkAccount" method="post">
 						<div class="form-group row">
 							<div class="col-3"></div>
 							<div class="col">
@@ -77,5 +79,11 @@
 			</div>
 		</div>
 	</div>
+	<c:if test="${not empty message }">
+	<script>
+	alert("로그인에 실패하였습니다.")
+	</script>
+	</c:if>
+	
 </body>
 </html>
