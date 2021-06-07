@@ -1,27 +1,24 @@
-package sample2.controller.board;
+package practice02.servlet;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import sample2.bean.BoardDto;
-import sample2.dao.BoardDao;
+import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class Sample2BoardDetailServlet
+ * Servlet implementation class LogoutServlet
  */
-@WebServlet("/sample2/board/detail")
-public class Sample2BoardDetailServlet extends HttpServlet {
+@WebServlet("/practice02/logout")
+public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Sample2BoardDetailServlet() {
+    public LogoutServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,23 +27,11 @@ public class Sample2BoardDetailServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id =request.getParameter("id");
-		
-		if(id == null) {
-			String path = request.getContextPath()+ "/sample2/board/list";
-			response.sendRedirect(path);
-		} else {
-			
-		}
-		BoardDao dao = new BoardDao();
-		//Board board = dao.get(Integer.parseInt(id));
-		BoardDto board = dao.get2(Integer.parseInt(id));
-		
-		request.setAttribute("board", board);
-		String path = "/WEB-INF/sample2/board/detail.jsp";
-		request.getRequestDispatcher(path).forward(request, response);
-		
-		
+		//세션에 저장된 정보를 지움. 로그인 하지 않은 상태로 만듬. 시작페이지로 이동
+		HttpSession session = request.getSession();
+		session.invalidate();
+		String path = request.getContextPath()  + "/practice02/start";
+		response.sendRedirect(path);
 	}
 
 	/**

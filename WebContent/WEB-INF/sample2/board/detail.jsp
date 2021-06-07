@@ -21,7 +21,7 @@
 	
 	<div class="form-group">
     <label for="input2">작성자</label>
-    <input readonly value="${board.memberIdHidden }" type="text" class="form-control" id="input2"  name="memberId">
+    <input readonly value="${board.memberNameHidden }" type="text" class="form-control" id="input2"  name="memberId">
   </div>
 	
 	<div class="form-group">
@@ -31,7 +31,7 @@
   
   <div class="form-group">
     <label for="input2">시간</label>
-    <input readonly value="${board.inserted }" type="text" class="form-control" id="input2"  name="inserted">
+    <input readonly value="${board.inserted }" type="text" class="form-control" id="input4"  name="inserted">
   </div>
 	
 </div>

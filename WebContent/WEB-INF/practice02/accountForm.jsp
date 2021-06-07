@@ -16,11 +16,12 @@
 <title>Insert title here</title>
 
 <script>
-var url = "${pageContext.request.contextPath}"+"/practice02/checkId"
+// 아이디 패턴과 중복을 확인하는 버튼
+var url = "${pageContext.request.contextPath}"+"/practice02/checkId";
 
 $(document).ready(function() {
 	$("#button1").click(function() {
-		var id = $("#input1").val();
+		var id = $("#input2").val();
 		
 		$.post(url, {id: id}, function(data) {
 			if (data == 'ok') {
@@ -31,12 +32,61 @@ $(document).ready(function() {
 				// 가입 불가능 메세지
 				// console.log("not ok");
 				alert("이미 존재하는 아이디입니다.");
+				$("#input2").val("");
 			} else {
-				alert("아이디 패턴을 확인해주세요.")
+				alert("아이디 패턴을 확인해주세요.");
+				$("#input2").val("");
 			}
 		});
 	});
 });
+
+//비밀번호 패턴을 확인하는 버튼
+var url2 = "${pageContext.request.contextPath}"+"/practice02/checkPassword";
+
+$(document).ready(function(){
+	$("#button2").click(function(){
+		var password = $("#input3").val();
+		
+		$.post(url2, {password: password}, function(data){
+			if(data == 'good'){
+				alert("사용 가능합니다.")
+			} else{
+				alert("비밀번호 패턴을 확인해주세요.");
+				$("#input3").val("");
+			}
+		});
+	});
+	//모든 input이 채워졌을 때 submit 버튼이 활성화
+	var disableSubmit = function() {
+		
+		var allTyped = true;
+		$("#form1 input").each(function(i, elem) {
+			allTyped = allTyped && ($(this).val() != '');
+		});
+		
+		if (allTyped) {
+			$("#submit1").removeAttr("disabled");
+		} else {
+			$("#submit1").attr("disabled", "disabled");
+		}
+	};
+	
+	$("#form1 input").on({
+		"mouseup" : disableSubmit,
+		"keyup" : disableSubmit,
+		"change" : disableSubmit
+	});
+	
+	
+});
+
+
+
+
+
+
+
 </script>
 
 </head>
@@ -48,17 +98,17 @@ $(document).ready(function() {
 <div></div>
 
 <!-- 회원가입 정보를 받아 post 방식으로 다시 NewAccountServlet으로 보내준다 -->
-<form action="<%=request.getContextPath() %>/practice02/account" method="post">
+<form action="<%=request.getContextPath() %>/practice02/account" method="post" id="form1">
 	<div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="basic-addon1">@</span>
   </div>
-  <input type="text" class="form-control" placeholder="이름" aria-label="Username" aria-describedby="basic-addon1" name="name">
+  <input type="text" class="form-control" placeholder="이름" aria-label="Username" aria-describedby="basic-addon1" name="name" id="input1">
 </div>
 
 <div class="input-group mb-3">
  <span class="input-group-text" id="basic-addon2">@</span>
-  <input type="text" class="form-control" placeholder="아이디" aria-label="Recipient's username" aria-describedby="button-addon2" id="input1" name="id">
+  <input type="text" class="form-control" placeholder="아이디" aria-label="Recipient's username" aria-describedby="button-addon2"  name="id" id="input2">
   
   <div class="input-group-append">
     <button class="btn btn-outline-secondary" type="button" id="button1">확인</button>
@@ -69,40 +119,45 @@ $(document).ready(function() {
   <div class="input-group-prepend">
     <span class="input-group-text" id="basic-addon3">@</span>
   </div>
-  <input type="password" class="form-control" placeholder="비밀번호" aria-label="Username" aria-describedby="basic-addon3" name="password">
+  <input type="password" class="form-control" placeholder="비밀번호" aria-label="Username" aria-describedby="basic-addon3" name="password" id="input3">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="button" id="button2">확인</button>
+  </div>
 </div>
 
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="basic-addon4">@</span>
   </div>
-  <input type="text" class="form-control" placeholder="전화번호" aria-label="Username" aria-describedby="basic-addon4" name="mobilNum">
+  <input type="text" class="form-control" placeholder="전화번호" aria-label="Username" aria-describedby="basic-addon4" name="mobileNum" id="input4">
 </div>
 
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="basic-addon5">@</span>
   </div>
-  <input type="text" class="form-control" placeholder="이메일" aria-label="Username" aria-describedby="basic-addon5" name="email">
+  <input type="text" class="form-control" placeholder="이메일" aria-label="Username" aria-describedby="basic-addon5" name="email" id="input5">
 </div>
 
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="basic-addon6">@</span>
   </div>
-  <input type="text" class="form-control" placeholder="주소" aria-label="Username" aria-describedby="basic-addon6" name="address">
+  <input type="text" class="form-control" placeholder="주소" aria-label="Username" aria-describedby="basic-addon6" name="address" id="input6">
 </div>
 
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="basic-addon7">@</span>
   </div>
-  <input type="date" class="form-control" placeholder="생년월일" aria-label="Username" aria-describedby="basic-addon6" name="birth">
+  <input type="date" class="form-control" placeholder="생년월일" aria-label="Username" aria-describedby="basic-addon6" name="birth" id="input7">
 </div>
 
-<button type="submit" class="btn btn-primary" >확인</button>
+<button type="submit" class="btn btn-primary" id="submit1" disabled>확인</button>
 </form>
 	
 </div>
+
+
 </body>
 </html>

@@ -1,0 +1,3 @@
+-- OUTER JOIN
+SELECT * FROM Users;
+SELECT * FROM Likes;
