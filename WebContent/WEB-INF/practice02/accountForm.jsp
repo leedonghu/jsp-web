@@ -21,7 +21,7 @@ var url = "${pageContext.request.contextPath}"+"/practice02/checkId";
 
 $(document).ready(function() {
 	$("#button1").click(function() {
-		var id = $("#input1").val();
+		var id = $("#input2").val();
 		
 		$.post(url, {id: id}, function(data) {
 			if (data == 'ok') {
@@ -44,9 +44,9 @@ var url2 = "${pageContext.request.contextPath}"+"/practice02/checkPassword";
 
 $(document).ready(function(){
 	$("#button2").click(function(){
-		var password = $("input2").val();
+		var password = $("#input3").val();
 		
-		$.post(url1, {password: password}, function(data){
+		$.post(url2, {password: password}, function(data){
 			if(data == 'good'){
 				alert("사용 가능합니다.")
 			} else{
@@ -138,7 +138,7 @@ if(name != ""
 
 <div class="input-group mb-3">
  <span class="input-group-text" id="basic-addon2">@</span>
-  <input type="text" class="form-control" placeholder="아이디" aria-label="Recipient's username" aria-describedby="button-addon2" id="input1" name="id" id="input2">
+  <input type="text" class="form-control" placeholder="아이디" aria-label="Recipient's username" aria-describedby="button-addon2"  name="id" id="input2">
   
   <div class="input-group-append">
     <button class="btn btn-outline-secondary" type="button" id="button1">확인</button>
@@ -159,7 +159,7 @@ if(name != ""
   <div class="input-group-prepend">
     <span class="input-group-text" id="basic-addon4">@</span>
   </div>
-  <input type="text" class="form-control" placeholder="전화번호" aria-label="Username" aria-describedby="basic-addon4" name="mobilNum" id="input4">
+  <input type="text" class="form-control" placeholder="전화번호" aria-label="Username" aria-describedby="basic-addon4" name="mobileNum" id="input4">
 </div>
 
 <div class="input-group mb-3">

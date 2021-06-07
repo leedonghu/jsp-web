@@ -39,7 +39,7 @@ birth DATE NOT NULL
 
 );
 
-SELECT id FROM Account;
+SELECT * FROM Account;
 DESC Account;
 SELECT * FROM Board;
 SELECT * FROM Member;
@@ -48,4 +48,7 @@ DESC Board;
 ALTER TABLE Board
 ADD FOREIGN KEY (memberId)
 REFERENCES Member(id);
+
+SELECT * FROM Member;
+SELECT * FROM Board;
 

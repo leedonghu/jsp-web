@@ -19,32 +19,27 @@
   <thead>
     <tr>
     <th scope="col-3">#</th>
-      <th scope="col-3">작성자</th>
-      <th scope="col">제목</th>
+      <th scope="col-3">제목</th>
+      <th scope="col">작성자</th>
       <th scope="col-3">시간</th>
       
     </tr>
   </thead>
 	
 	 <tbody>
-       <c:forEach items="${boards }" var="board" varStatus="status">
-       <tr>
-       <td>${board.id }</td>
-       <td>${board.memberId }</td>
-       <td>
-      
-       <a href="${pageContext.request.contextPath }/sample2/board/detail?id=${board.id}">
-       ${board.title }
-       </a>
-       
-       </td>
-       <td>${board.timeAgo }</td>
-       </tr>
-       </c:forEach>
-  
-     
-  
-  </tbody>
+			<c:forEach items="${boards }" var="board">
+				<tr>
+					<td>${board.boardId }</td>
+					<td>
+						<a href="<%= request.getContextPath() %>/sample2/board/detail?id=${board.boardId}">
+							${board.title }
+						</a>
+					</td>
+					<td>${board.memberName }</td>
+					<td>${board.timeAgo }</td>
+				</tr>
+			</c:forEach>
+		</tbody>
 	
 	</table>
 </div>

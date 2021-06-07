@@ -45,14 +45,17 @@ public class CheckIdServlet extends HttpServlet {
 		AccountDao dao = new AccountDao();
 		
 		//id와 정규표현식을 비교하여 아이디 생성 가능 여부 체크
-		if(id.matches(idForm)) {
-			if(dao.existId(id)) {
-				response.getWriter().append("not ok");
+		if(id != null) {
+			
+			if(id.matches(idForm)) {
+				if(dao.existId(id)) {
+					response.getWriter().append("not ok");
+				} else {
+					response.getWriter().append("ok");
+				}
 			} else {
-				response.getWriter().append("ok");
+				response.getWriter().append("not good");
 			}
-		} else {
-			response.getWriter().append("not good");
 		}
 		
 	}

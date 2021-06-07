@@ -48,6 +48,7 @@ public class CheckAccount extends HttpServlet {
 		if(acc != null && acc.getPassword().equals(password)) {
 			HttpSession session = request.getSession();
 			session.setAttribute("logined", "로그인 중");
+			session.setAttribute("acc", acc);
 			String path = request.getContextPath()  + "/practice02/main";
 			response.sendRedirect(path);
 		} else {
