@@ -27,6 +27,7 @@ public class LogoutServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//세션에 저장된 정보를 지움. 로그인 하지 않은 상태로 만듬. 시작페이지로 이동
 		HttpSession session = request.getSession();
 		session.invalidate();
 		String path = request.getContextPath()  + "/practice02/start";

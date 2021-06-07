@@ -32,8 +32,10 @@ $(document).ready(function() {
 				// 가입 불가능 메세지
 				// console.log("not ok");
 				alert("이미 존재하는 아이디입니다.");
+				$("#input2").val("");
 			} else {
 				alert("아이디 패턴을 확인해주세요.");
+				$("#input2").val("");
 			}
 		});
 	});
@@ -51,72 +53,40 @@ $(document).ready(function(){
 				alert("사용 가능합니다.")
 			} else{
 				alert("비밀번호 패턴을 확인해주세요.");
+				$("#input3").val("");
 			}
 		});
 	});
+	//모든 input이 채워졌을 때 submit 버튼이 활성화
+	var disableSubmit = function() {
+		
+		var allTyped = true;
+		$("#form1 input").each(function(i, elem) {
+			allTyped = allTyped && ($(this).val() != '');
+		});
+		
+		if (allTyped) {
+			$("#submit1").removeAttr("disabled");
+		} else {
+			$("#submit1").attr("disabled", "disabled");
+		}
+	};
+	
+	$("#form1 input").on({
+		"mouseup" : disableSubmit,
+		"keyup" : disableSubmit,
+		"change" : disableSubmit
+	});
+	
+	
 });
 
 
-//모든 input이 채워졌을 때 submit 버튼 활성화
-/*
-$("#input1", 
-  "#input2",
-  "#input3",
-  "#input4",
-  "#input5",
-  "#input6",
-  "#input7").on("input", processkey);
-
-function processkey(){
-	var name = $("#input1").val();
-	var id = $("#input2").val();
-	var password = $("#input3").val();
-	var mobileNum = $("#input4").val();
-	var email = $("#input5").val();
-	var address = $("#input6").val();
-	var birth = $("#input7").val();
-	
-	if(name != "" 
-	&& id != ""
-	&& password != ""
-	&& mobileNum != ""
-	&& email != ""
-	&& address != ""
-	&& birth != ""){
-		
-		$("submit1").attr("disabled", false)
-	
-	} else {
-		$("submit1").attr("disabled", true)
-	}
-	
-	
-}
 
 
-/*
-var name = $("#input1").val();
-var id = $("#input2").val();
-var password = $("#input3").val();
-var mobileNum = $("#input4").val();
-var email = $("#input5").val();
-var address = $("#input6").val();
-var birth = $("#input7").val();
 
-if(name != "" 
-	&& id != ""
-	&& password != ""
-	&& mobileNum != ""
-	&& email != ""
-	&& address != ""
-	&& birth != ""){
-		
-		$("#submit1").attr("disabled", false)
-	
-	} else {
-		$("#submit1").attr("disabled", true)
-	}
-*/
+
+
 </script>
 
 </head>
@@ -128,7 +98,7 @@ if(name != ""
 <div></div>
 
 <!-- 회원가입 정보를 받아 post 방식으로 다시 NewAccountServlet으로 보내준다 -->
-<form action="<%=request.getContextPath() %>/practice02/account" method="post">
+<form action="<%=request.getContextPath() %>/practice02/account" method="post" id="form1">
 	<div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="basic-addon1">@</span>
@@ -183,7 +153,7 @@ if(name != ""
   <input type="date" class="form-control" placeholder="생년월일" aria-label="Username" aria-describedby="basic-addon6" name="birth" id="input7">
 </div>
 
-<button type="submit" class="btn btn-primary" id="submit1">확인</button>
+<button type="submit" class="btn btn-primary" id="submit1" disabled>확인</button>
 </form>
 	
 </div>

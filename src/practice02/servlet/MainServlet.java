@@ -26,6 +26,7 @@ public class MainServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//메인페이지로 포워드
 		String path = "/WEB-INF/practice02/mainPage.jsp";
 		request.getRequestDispatcher(path).forward(request, response);
 	}

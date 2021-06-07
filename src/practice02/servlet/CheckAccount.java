@@ -39,12 +39,19 @@ public class CheckAccount extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//로그인 창에서 id와 password를 받아옴
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 		
+		//회원가입시 저장되었던 계정 정보를 가져옴
 		AccountDao dao = new AccountDao();
 		Account acc = dao.getAccount(id);
 		
+		//회원가입되었던 계정이 있고 그 계정의 비밀번호와 입력된 비밀번호가 같으면 로그인
+		//세션에 받아온 Account 객체와 String 하나를 넣어놈
+		//객체는 ${} (el)를 편하게 쓰기위해
+		//String은 로그인 상태를 파악하기 위해
+		//로그아웃 페이지에서 session.invalidate(); 시켜줌
 		if(acc != null && acc.getPassword().equals(password)) {
 			HttpSession session = request.getSession();
 			session.setAttribute("logined", "로그인 중");
