@@ -1,5 +1,6 @@
 SELECT * FROM Customers;
-SELECT * FROM Orders;
+SELECT * FROM Account;
+
 
 SELECT * FROM Customers JOIN Orders
 on Customers.CustomerID = Orders.CustomerID;
