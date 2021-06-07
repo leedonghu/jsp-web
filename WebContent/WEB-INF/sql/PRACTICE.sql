@@ -39,13 +39,25 @@ birth DATE NOT NULL
 
 );
 
-SELECT id FROM Account;
+SELECT * FROM Account;
 DESC Account;
 SELECT * FROM Board;
+
 SELECT * FROM Member;
 DESC Board;
 
 ALTER TABLE Board
 ADD FOREIGN KEY (memberId)
 REFERENCES Member(id);
+
+SELECT id, title, memberId, inserted
+from Board
+where title = '가나다라';
+
+CREATE TABLE Auto
+(
+a INT PRIMARY KEY AUTO_INCREMENT,
+b int AUTO_INCREMENT,
+c VARCHAR(255)
+);
 
