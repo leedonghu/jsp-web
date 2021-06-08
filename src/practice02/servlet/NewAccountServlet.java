@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import practice02.bean.Account;
 import practice02.dao.AccountDao;
+import practice02.dao.CartDao;
 
 /**
  * Servlet implementation class NewAccountServlet
@@ -66,10 +67,16 @@ public class NewAccountServlet extends HttpServlet {
 		AccountDao dao = new AccountDao();
 		boolean ok = dao.insertAcc(acc);
 		
+		CartDao cdao = new CartDao();
+		boolean good = cdao.creat(id);
+		
 		//저장이 완료되면 시작페이지로 이동
 		if (ok) {
-			String path = request.getContextPath() + "/practice02/start";
-			response.sendRedirect(path);
+			if(good) {
+				String path = request.getContextPath() + "/practice02/start";
+				response.sendRedirect(path);
+				
+			}
 		} else {
 			
 			//저장이 실패하면 회원가입폼으로 이동
