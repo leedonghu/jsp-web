@@ -203,7 +203,12 @@ public class BoardDao {
 	
 public BoardDto get2(int id) {
 		
-		String sql = "SELECT b.id boardId, b.title title, b.body body, m.name memberName, b.inserted "
+		String sql = "SELECT b.id boardId, "
+				+ "b.title title, "
+				+ "b.body body, "
+				+ "m.name memberName, "
+				+ "m.id memberID, "
+				+ "b.inserted "
 				+ "FROM Board b JOIN Member m ON b.memberId = m.id "
 				+ "WHERE b.id = ? ";
 		
@@ -223,7 +228,8 @@ public BoardDto get2(int id) {
 				board.setTitle(rs.getString(2));
 				board.setBody(rs.getString(3));
 				board.setMemberName(rs.getString(4));
-				board.setInserted(rs.getTimestamp(5));
+				board.setMemberId(rs.getString(5));
+				board.setInserted(rs.getTimestamp(6));
 				
 				return board;
 			}
@@ -242,6 +248,69 @@ public BoardDto get2(int id) {
 		
 		return null;
 	}
+
+public boolean modify(BoardDto newBoard) {
+	String sql = "UPDATE Board "
+			+ "SET title = ?, "
+			+ "body = ? "
+			+ "WHERE id = ? ";
+	
+	try(
+		Connection con = DriverManager.getConnection(url, user, password);
+		PreparedStatement pstmt = con.prepareStatement(sql);
+			){
+		
+		pstmt.setString(1, newBoard.getTitle());
+		pstmt.setString(2, newBoard.getBody());
+		pstmt.setInt(3, newBoard.getBoardId());
+		
+		int cnt = pstmt.executeUpdate();
+		
+		return cnt == 1;
+		
+	}catch (Exception e) {
+		e.printStackTrace();
+	}
+	
+	
+	
+	return false;
+}
+
+public boolean remove(int boardId) {
+	String sql = "DELETE FROM Board " + 
+			"WHERE id = ? ";
+	
+	try(
+		Connection con = DriverManager.getConnection(url, user, password);
+		PreparedStatement pstmt = con.prepareStatement(sql);	
+			){
+		pstmt.setInt(1, boardId);
+		
+		int cnt = pstmt.executeUpdate();
+		return cnt==1;
+		
+	}catch (Exception e) {
+		// TODO: handle exception
+	}
+	
+	return false;
+}
+
+public void removeByMember(String id, Connection con) {
+	String sql = "DELETE FROM Board WHERE memberId = ? ";
+	
+	try(
+		PreparedStatement pstmt = con.prepareStatement(sql);
+			){
+		pstmt.setString(1, id);
+		pstmt.executeUpdate();
+		
+	}catch (Exception e) {
+		e.printStackTrace();
+	}
+	
+}
 
 		
 		

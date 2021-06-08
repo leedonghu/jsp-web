@@ -53,7 +53,7 @@ public class NewAccountServlet extends HttpServlet {
 		String birth = request.getParameter("birth");
 		
 		//Account 객체를 만들어 그 안에 저장
-		Account acc = null;
+		Account acc = new Account();
 		acc.setName(name);
 		acc.setId(id);
 		acc.setPassword(password);
