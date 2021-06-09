@@ -49,3 +49,12 @@ t1.id AS id1, t1.name AS name1, t1.bookId AS bookId, t2.id AS id2, t2.bookName A
 FROM 
 Table01 t1 JOIN Table02 t2 
 on t1.bookId = t2.id;
+
+
+
+
+SELECT * FROM Customers;
+SELECT * FROM Products;
+SELECT * FROM Categories;
+SELECT * FROM Orders;
+SELECT * FROM OrderDetails;
