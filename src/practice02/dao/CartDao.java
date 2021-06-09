@@ -32,8 +32,11 @@ public class CartDao {
 		   Connection con = DriverManager.getConnection(url, user, password);
 		   PreparedStatement pstmt = con.prepareStatement(sql);		
 				){
+			//회원가입창에서 받아온 id를 table의 이름으로
 			pstmt.setString(1, id);
 			int cnt = pstmt.executeUpdate();
+			
+			//table이 만들어지면 pstmt.executeUpdate(); 가 0을 리턴함
 			if(cnt == 0) {
 				return true;
 			}
