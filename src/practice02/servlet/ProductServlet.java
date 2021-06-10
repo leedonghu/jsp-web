@@ -1,4 +1,4 @@
-package sample2.controller.board;
+package practice02.servlet;
 
 import java.io.IOException;
 import java.util.List;
@@ -9,36 +9,57 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import sample2.bean.BoardDto;
-import sample2.dao.BoardDao;
+import practice02.bean.Fruit;
+import practice02.dao.CartDao;
 
 /**
- * Servlet implementation class Sample2BoardListServelt
+ * Servlet implementation class ProductServlet
  */
-@WebServlet("/sample2/board/list")
-public class Sample2BoardListServelt extends HttpServlet {
+@WebServlet("/practice02/product")
+public class ProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Sample2BoardListServelt() {
+    public ProductServlet() {
         super();
         // TODO Auto-generated constructor stub
+    }
+    
+    @Override
+    public void init() throws ServletException {
+    	// TODO Auto-generated method stub
+    	super.init();
+    	
+    	
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		BoardDao dao = new BoardDao();
-		//List<BoardDto> boardList = dao.list2();
-		List<BoardDto> boardList = dao.list3();
-		int total = dao.countAll();
+		String page = request.getParameter("page");
+		int limit = 0;
+		if(page == null) {
+			limit = 1;
+		}else {
+			
+			limit = Integer.parseInt(page);
+		}
+				
 		
-		request.setAttribute("boards", boardList);
-		request.setAttribute("totalNum", total);
-		String path = "/WEB-INF/sample2/board/list.jsp";
+		CartDao dao = new CartDao();
+		List<Fruit> list = dao.getFruit(limit);
+		int size = dao.getSize();
+		
+		request.setAttribute("fruit", list);
+		request.setAttribute("size", size);
+		
+		
+		String path = "/WEB-INF/practice02/product.jsp";
 		request.getRequestDispatcher(path).forward(request, response);
 	}
 

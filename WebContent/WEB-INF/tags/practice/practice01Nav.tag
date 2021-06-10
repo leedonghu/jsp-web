@@ -10,7 +10,7 @@
   <div class="col-8">
     <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 100px;">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Board <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="${pageContext.request.contextPath }/practice02/product">쇼핑 <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">친구찾기</a>

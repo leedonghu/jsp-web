@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import sample2.bean.Member;
 import sample2.dao.MemberDao;
+import sample2.service.member.MemberService;
 
 /**
  * Servlet implementation class Sample2InfoServlet
@@ -18,6 +19,8 @@ import sample2.dao.MemberDao;
 @WebServlet("/sample2/member/info")
 public class Sample2InfoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	private MemberService service;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -25,6 +28,13 @@ public class Sample2InfoServlet extends HttpServlet {
     public Sample2InfoServlet() {
         super();
         // TODO Auto-generated constructor stub
+    }
+    
+    @Override
+    public void init() throws ServletException {
+    	// TODO Auto-generated method stub
+    	super.init();
+    	service = new MemberService();
     }
 
 	/**
@@ -39,7 +49,10 @@ public class Sample2InfoServlet extends HttpServlet {
 			
 			//멤버 인스턴스에 있던 정보를 데이터베이와 한번 비교후 베이터 베이스 정보 가져옴
 			MemberDao dao = new MemberDao();
-			Member mem = dao.getMember(member.getId());
+			//Member mem = dao.getMember(member.getId());
+			//Member mem = dao.getMember2(member.getId());
+			
+			Member mem = service.getMember(member.getId());
 			
 			//가져온 정보를 request에 담아서 forward
 			request.setAttribute("member", mem);
