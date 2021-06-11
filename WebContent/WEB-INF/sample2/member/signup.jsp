@@ -33,21 +33,49 @@ $(document).ready(function() {
 
 </head>
 <body>
-
+<s2:navbar></s2:navbar>
 <div class="container">
+<h1>회원가입</h1>
+<hr>
 	<form action="${pageContext.request.contextPath }/sample2/member/signup" method="post">
-	id: 
-	<input type="text" name="id" id="input1">
-	<button id="button1" type="button">중복확인</button>
-	<span id="span1"></span><br>
-	pw:
-	<input type="password" name="password"><br>
-	name: 
-	<input type="text" name="name"><br>
-	birth day: 
-	<input type="date" name="birth"><br>
+
 	
-	<input type="submit" value="가입">
+	<div class="form-group">
+	<label for="input1">아이디</label>
+	
+	<div class="input-group mb-3">
+  
+	<input id="input1" class="form-control" name="id" type="text">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="button" id="button1">중복확인</button>
+  </div>
+  </div>
+	<span class="form-text text-muted" id="span1"></span>
+	</div>
+	
+	
+	<br>
+	
+	
+	<div class="form-group">
+	<label for="input2">패스워드</label>
+	<input id="input2" type="password" name="password" class="form-control">
+	</div><br>
+	
+	
+	
+	<div class="form-group">
+	<label for="input3">이름</label>
+	<input id="input3" class="form-control" type="text" name="name">
+	</div>
+	
+	<br>
+	<div class="form-group">
+	<label for="input4">생일</label>
+	<input id="input4" class="form-control" type="date" name="birth">
+	</div>
+	
+	<input type="submit" value="가입" class="btn btn-primary">
 	</form>
 	<s2:message></s2:message>
 	

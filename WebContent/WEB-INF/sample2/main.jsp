@@ -15,9 +15,15 @@
 
 <div class="container">
 	
-	<s2:navbar />
-	<h1>환영합니다.</h1>
-	<a href="<%=request.getContextPath() %>/sample2/member/signup">회원가입</a>
+<s2:navbar></s2:navbar>	
+<div class="jumbotron">
+  <h1 class="display-4"><i class="fas fa-atom"></i>환영합니다</h1>
+  <p class="lead">기본 Servlet / jsp로 만든 회원, 게시판 어플리케이션 입니다.</p>
+  <hr class="my-4">
+  <p>처음 만들어본 게시판. 회원가입해 보세요</p>
+  <a class="btn btn-primary btn-lg" href="<%=request.getContextPath() %>/sample2/member/signup" role="button">회원가입</a>
 </div>
+</div>
+
 </body>
 </html>
