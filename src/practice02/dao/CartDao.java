@@ -103,6 +103,71 @@ public class CartDao {
 		
 		return 0;
 	}
+
+	public void add(String cId, Fruit fruit) {
+		String sql = "INSERT INTO Cart ( "
+				+ "customerId, productId, productName, amount, price ) "
+				+ "VALUES ( "
+				+ "?, ?, ?, ?, ?) ";
+		
+		try(
+			Connection con = DriverManager.getConnection(url, user, password);
+			PreparedStatement pstmt = con.prepareStatement(sql);	
+				){
+			pstmt.setString(1, cId);
+			pstmt.setInt(2, fruit.getId());
+			pstmt.setString(3, fruit.getName());
+			pstmt.setInt(4, fruit.getAmount());
+			pstmt.setInt(5, fruit.getPrice());
+			
+			pstmt.executeUpdate();
+			
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	public Fruit get(int id) {
+		String sql = "SELECT id, name, price, amount FROM Fruit WHERE id = ? ";
+		
+		ResultSet rs = null;
+		try(
+			Connection con = DriverManager.getConnection(url, user, password);
+			PreparedStatement pstmt = con.prepareStatement(sql);	
+				){
+			pstmt.setInt(1, id);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				Fruit fruit = new Fruit();
+				fruit.setId(rs.getInt(1));
+				fruit.setName(rs.getString(2));
+				fruit.setPrice(rs.getInt(3));
+				fruit.setAmount(rs.getInt(4));
+				
+				return fruit;
+				
+			}
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		return null;
+		
+	}
 	
 	
 }

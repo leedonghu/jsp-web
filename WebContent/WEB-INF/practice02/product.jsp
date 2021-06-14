@@ -28,11 +28,11 @@
   <c:forEach items="${fruit }" var="fruit" >
     <tr>
       <th scope="row"><img width="100px" src="<%=request.getContextPath() %>/res/img/${fruit.name }.jpg" alt="."></th>
-      <td>${fruit.name }</td>
+      <td><a  href="${pageContext.request.contextPath }/practice02/detail?id=${fruit.id }">${fruit.name }</a></td>
       <td>${fruit.price }</td>
      
     </tr>
-   
+   <input hidden value="${fruit.id }"/>
   </c:forEach>
   </tbody>
 </table>
