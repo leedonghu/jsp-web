@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import practice02.bean.Account;
+import practice02.bean.Fruit;
 import practice02.service.CartService;
 
 /**
@@ -40,13 +41,33 @@ public class CartServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		//받아온 정보들을 필요한 형태로 변형
+		String name = request.getParameter("name");
 		String idStr = request.getParameter("id");
+		String priceStr = request.getParameter("price");
+		String amountStr = request.getParameter("amount");
+		
 		int id = Integer.parseInt(idStr);
+		int amount = Integer.parseInt(amountStr);
+		int price = Integer.parseInt(priceStr);
 		
 		Account acc = (Account)request.getSession().getAttribute("acc");
 		String cId = acc.getId();
 		
-		service.addCart(cId, id);
+		Fruit fruit = new Fruit();
+		fruit.setAmount(amount);
+		fruit.setId(id);
+		fruit.setName(name);
+		fruit.setPrice(price);
+		
+		//cart table에 insert
+		service.addCart(cId, fruit);
+		
+		//cart table에서 data 적절한 형태로 받아옴
+		//service.getCart(cId);
+		
+		
 	}
 
 	/**

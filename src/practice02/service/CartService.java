@@ -10,10 +10,15 @@ public class CartService {
 		this.cDao = new CartDao();
 	}
 
-	public void addCart(String cId, int id) {
+	public void addCart(String cId, Fruit fruit) {
 		
-		Fruit fruit = cDao.get(id);
+		
 		cDao.add(cId, fruit);
+		
+	}
+
+	public void getCart(String cId) {
+		cDao.getCart(cId);
 		
 	}
 	
