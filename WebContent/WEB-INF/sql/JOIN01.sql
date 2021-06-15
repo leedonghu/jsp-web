@@ -51,6 +51,16 @@ Table01 t1 JOIN Table02 t2
 on t1.bookId = t2.id;
 
 
+USE practice;
+SELECT productId, productName, sum(amount), price FROM Cart
+WHERE customerId = 'aaaaa'
+GROUP BY productName;
+HAVING customerId = 'aaaaaa'
+
+USE test;
+SELECT * FROM Account;
+
+
 
 
 SELECT * FROM Customers;
