@@ -13,7 +13,7 @@
         <a class="nav-link" href="${pageContext.request.contextPath }/practice02/product">쇼핑 <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">친구찾기</a>
+        <a class="nav-link" href="${pageContext.request.contextPath }/practice02/cart" tabindex="-1" aria-disabled="true">장바구니</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Link</a>

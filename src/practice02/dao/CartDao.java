@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import practice02.bean.Cart;
 import practice02.bean.Fruit;
 
 public class CartDao {
@@ -169,8 +170,47 @@ public class CartDao {
 		
 	}
 
-	public void getCart(String cId) {
-		String sql = "SELECT";
+	public List<Cart> getCart(String cId) {
+		String sql = "SELECT productId, productName, SUM(amount), price "
+				+ "FROM Cart "
+				+ "WHERE customerId = ? "
+				+ "GROUP BY productName ";
+		
+		List<Cart> list = new ArrayList<>();
+		ResultSet rs = null;
+		try(
+			Connection con = DriverManager.getConnection(url, user, password);
+			PreparedStatement pstmt = con.prepareStatement(sql);	
+				){
+			pstmt.setString(1, cId);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Cart cart = new Cart();
+				cart.setpId(rs.getInt(1));
+				cart.setpName(rs.getString(2));
+				cart.setAmount(rs.getInt(3));
+				cart.setPrice(rs.getInt(4));
+				
+				list.add(cart);
+			}
+			
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		return list;
 		
 	}
 	

@@ -1,5 +1,8 @@
 package practice02.service;
 
+import java.util.List;
+
+import practice02.bean.Cart;
 import practice02.bean.Fruit;
 import practice02.dao.CartDao;
 
@@ -17,8 +20,8 @@ public class CartService {
 		
 	}
 
-	public void getCart(String cId) {
-		cDao.getCart(cId);
+	public List<Cart> getCart(String cId) {
+		return cDao.getCart(cId);
 		
 	}
 	

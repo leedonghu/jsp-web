@@ -1,6 +1,7 @@
 package practice02.servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import practice02.bean.Account;
+import practice02.bean.Cart;
 import practice02.bean.Fruit;
 import practice02.service.CartService;
 
@@ -65,7 +67,14 @@ public class CartServlet extends HttpServlet {
 		service.addCart(cId, fruit);
 		
 		//cart table에서 data 적절한 형태로 받아옴
-		//service.getCart(cId);
+		List<Cart> list =  service.getCart(cId);
+		
+		//받아온 정보를 request에 붙힘
+		request.setAttribute("list", list);
+		
+		//jsp로 forward
+		String path = "/WEB-INF/practice02/cart.jsp";
+		request.getRequestDispatcher(path).forward(request, response);
 		
 		
 	}
