@@ -44,27 +44,8 @@ public class CartServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//받아온 정보들을 필요한 형태로 변형
-		String name = request.getParameter("name");
-		String idStr = request.getParameter("id");
-		String priceStr = request.getParameter("price");
-		String amountStr = request.getParameter("amount");
-		
-		int id = Integer.parseInt(idStr);
-		int amount = Integer.parseInt(amountStr);
-		int price = Integer.parseInt(priceStr);
-		
 		Account acc = (Account)request.getSession().getAttribute("acc");
 		String cId = acc.getId();
-		
-		Fruit fruit = new Fruit();
-		fruit.setAmount(amount);
-		fruit.setId(id);
-		fruit.setName(name);
-		fruit.setPrice(price);
-		
-		//cart table에 insert
-		service.addCart(cId, fruit);
 		
 		//cart table에서 data 적절한 형태로 받아옴
 		List<Cart> list =  service.getCart(cId);
@@ -83,8 +64,32 @@ public class CartServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		//받아온 정보들을 필요한 형태로 변형
+				String name = request.getParameter("name");
+				String idStr = request.getParameter("id");
+				String priceStr = request.getParameter("price");
+				String amountStr = request.getParameter("amount");
+				
+				
+				int id = Integer.parseInt(idStr);
+				int amount = Integer.parseInt(amountStr);
+				int price = Integer.parseInt(priceStr);
+				
+				Account acc = (Account)request.getSession().getAttribute("acc");
+				String cId = acc.getId();
+				
+				Fruit fruit = new Fruit();
+				fruit.setAmount(amount);
+				fruit.setId(id);
+				fruit.setName(name);
+				fruit.setPrice(price);
+				
+				//cart table에 insert
+				service.addCart(cId, fruit);
+				
+				//productServlet으로 redirect
+				String path = request.getContextPath() +"/practice02/product";
+				response.sendRedirect(path);
 	}
 
 }

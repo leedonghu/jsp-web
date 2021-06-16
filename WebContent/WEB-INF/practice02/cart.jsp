@@ -34,13 +34,32 @@
       <th scope="row"><img width="100px" src="<%=request.getContextPath() %>/res/img/${list.pName }.jpg" alt="."></th>
       <td>${list.pName }</td>
       <td>${list.amount }</td>
-      <td>${list.price * list.amount }</td>
+      <td class="value">${list.price * list.amount }</td>
      
     </tr>
    <input hidden value="${list.pId }"/>
   </c:forEach>
   </tbody>
 </table>
+
+<script>
+$(document).ready(function(){
+	var sum = 0;
+	$(".value").each(function(){
+		sum += Number($(this).html()); //number 메소드를 쓰지 않으면 String으로 연산함
+	});
+	$("#sum").html(sum + "원");
+});
+
+</script>
+<hr>
+<br>
+<div class="row">
+<div class="col"></div>
+<div class="col"><h1>총 가격</h1></div>
+<div class="col"><h1 id="sum"></h1></div>
+
+</div>
 </div>
 
 </body>
