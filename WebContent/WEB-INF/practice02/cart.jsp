@@ -33,7 +33,11 @@
     <tr>
       <th scope="row"><img width="100px" src="<%=request.getContextPath() %>/res/img/${list.pName }.jpg" alt="."></th>
       <td>${list.pName }</td>
-      <td>${list.amount }</td>
+      <td>
+      <button type="button" id="minus${list.pId }button"><i class="fas fa-minus"></i></button>
+      <input value="${list.amount }" id="amount${list.pId }value">
+      <button type="button" id="plus${list.pId }button"><i class="fas fa-plus"></i></button>
+      </td>
       <td class="value">${list.price * list.amount }</td>
      
     </tr>
@@ -49,6 +53,7 @@ $(document).ready(function(){
 		sum += Number($(this).html()); //number 메소드를 쓰지 않으면 String으로 연산함
 	});
 	$("#sum").html(sum + "원");
+	
 });
 
 </script>
