@@ -52,10 +52,10 @@ on t1.bookId = t2.id;
 
 
 USE practice;
-SELECT productId, productName, sum(amount), price FROM Cart
+SELECT customerId, productId, productName, sum(amount), price FROM Cart
 WHERE customerId = 'aaaaa'
-GROUP BY productName;
-HAVING customerId = 'aaaaaa'
+GROUP BY productName
+HAVING sum(amount) = 1;
 
 USE test;
 SELECT * FROM Account;
