@@ -25,6 +25,17 @@
 			
 			$("#sum").text(sum + "원");
 		});
+		
+		var amount = $("#amount-"+${list.pId}).val();
+		$("#minus-${list.pId}-button").click(function(){
+			amount = amount - 1;
+			$("#amount-${list.pId}").val(amount);
+		});
+		$("#plus-${list.pId}-button").click(function(){
+			amount = amount + 1;
+			$("#amount-${list.pId}").val(amount);
+		});
+		
 	});
 </script>
 
@@ -55,9 +66,9 @@
       <td scope="row"><img width="100px" src="<%=request.getContextPath() %>/res/img/${list.pName }.jpg" alt="."></td>
       <td>${list.pName }</td>
       <td>
-      <button type="button" id="minus${list.pId }button"><i class="fas fa-minus"></i></button>
-      <input value="${list.amount }" id="amount${list.pId }value" name="amount">
-      <button type="button" id="plus${list.pId }button"><i class="fas fa-plus"></i></button>
+      <button type="button" id="minus-${list.pId }-button"><i class="fas fa-minus"></i></button>
+      <input value="${list.amount }" id="amount-${list.pId }" name="amount">
+      <button type="button" id="plus-${list.pId }-button"><i class="fas fa-plus"></i></button>
       </td>
       <td><span class="value">${list.price * list.amount }</span>원</td>
       <td><button type="button" class="btn btn-primary">삭제</button></td>
